@@ -402,130 +402,349 @@
             <div class="row mb-4">
                 <div class="col">
                     <h1>Course Catalog</h1>
-                    <p class="lead">Browse and select courses for Spring 2025</p>
+                    <p class="lead">Browse and select courses for registration</p>
                 </div>
             </div>
             
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Search courses by name or code">
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>All Departments</option>
-                                        <option>Computer Science</option>
-                                        <option>Mathematics</option>
-                                        <option>Physics</option>
-                                        <option>English</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>All Credit Hours</option>
-                                        <option>1 Credit</option>
-                                        <option>2 Credits</option>
-                                        <option>3 Credits</option>
-                                        <option>4 Credits</option>
-                                    </select>
-                                </div>
+            <!-- Advanced Search & Filter Section -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="courseSearch" class="form-label">Search Courses</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="courseSearch" placeholder="Course code, title, or description">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="departmentFilter" class="form-label">Department</label>
+                            <select class="form-select" id="departmentFilter">
+                                <option value="">All Departments</option>
+                                <option value="CSE">Computer Science (CSE)</option>
+                                <option value="MATH">Mathematics (MATH)</option>
+                                <option value="PHYS">Physics (PHYS)</option>
+                                <option value="CHEM">Chemistry (CHEM)</option>
+                                <option value="ENG">English (ENG)</option>
+                                <option value="BUS">Business (BUS)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="creditFilter" class="form-label">Credit Hours</label>
+                            <select class="form-select" id="creditFilter">
+                                <option value="">Any Credits</option>
+                                <option value="1">1 Credit</option>
+                                <option value="2">2 Credits</option>
+                                <option value="3">3 Credits</option>
+                                <option value="4">4 Credits</option>
+                                <option value="5">5+ Credits</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="availabilityFilter" class="form-label">Availability</label>
+                            <select class="form-select" id="availabilityFilter">
+                                <option value="">All Courses</option>
+                                <option value="available" selected>Available Seats</option>
+                                <option value="open">Open (No Prerequisites)</option>
+                                <option value="full">Full Courses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="hideInCart">
+                                <label class="form-check-label" for="hideInCart">Hide courses already in cart</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <button class="btn btn-outline-secondary btn-sm me-2">Reset Filters</button>
+                            <button class="btn btn-primary btn-sm">Apply Filters</button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Code</th>
-                                            <th>Course Name</th>
-                                            <th>Department</th>
-                                            <th>Credits</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>CSE201</td>
-                                            <td>Data Structures</td>
-                                            <td>Computer Science</td>
-                                            <td>3</td>
-                                            <td><span class="badge bg-success">Available</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>CSE205</td>
-                                            <td>Database Systems</td>
-                                            <td>Computer Science</td>
-                                            <td>3</td>
-                                            <td><span class="badge bg-success">Available</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>MATH301</td>
-                                            <td>Differential Equations</td>
-                                            <td>Mathematics</td>
-                                            <td>4</td>
-                                            <td><span class="badge bg-success">Available</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>PHY201</td>
-                                            <td>Physics II</td>
-                                            <td>Physics</td>
-                                            <td>4</td>
-                                            <td><span class="badge bg-success">Available</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>ENG301</td>
-                                            <td>Advanced Technical Writing</td>
-                                            <td>English</td>
-                                            <td>3</td>
-                                            <td><span class="badge bg-success">Available</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>CSE301</td>
-                                            <td>Software Engineering</td>
-                                            <td>Computer Science</td>
-                                            <td>3</td>
-                                            <td><span class="badge bg-warning text-dark">Prerequisites Required</span></td>
-                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>CSE401</td>
-                                            <td>Machine Learning</td>
-                                            <td>Computer Science</td>
-                                            <td>3</td>
-                                            <td><span class="badge bg-danger">Full</span></td>
-                                            <td><button class="btn btn-sm btn-primary" disabled>Add to Cart</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+            <!-- Course Listing -->
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Available Courses</h5>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-th-list"></i> List
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary active">
+                            <i class="fas fa-th"></i> Grid
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <!-- Course Card 1 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-primary">CSE</span>
+                                    <span class="badge bg-success">Available</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">CSE201: Data Structures</h5>
+                                    <p class="card-text small mb-2">Study of data structures and algorithms fundamental to computer science.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 3 Credits</span>
+                                        <span><i class="fas fa-users"></i> 45/60 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">CSE101</span>
+                                            <span class="badge bg-light text-dark">MATH201</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-outline-primary btn-sm" onclick="showAlert('Course added to cart')">
+                                            <i class="fas fa-plus"></i> Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <nav>
-                                <ul class="pagination justify-content-center mb-0">
-                                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                        
+                        <!-- Course Card 2 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-primary">CSE</span>
+                                    <span class="badge bg-success">Available</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">CSE205: Database Systems</h5>
+                                    <p class="card-text small mb-2">Introduction to database design and management systems.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 3 Credits</span>
+                                        <span><i class="fas fa-users"></i> 38/55 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">CSE201</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-outline-primary btn-sm" onclick="showAlert('Course added to cart')">
+                                            <i class="fas fa-plus"></i> Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <!-- Course Card 3 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-info">MATH</span>
+                                    <span class="badge bg-success">Available</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">MATH301: Differential Equations</h5>
+                                    <p class="card-text small mb-2">Study of equations relating functions with their derivatives.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 4 Credits</span>
+                                        <span><i class="fas fa-users"></i> 29/40 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">MATH201</span>
+                                            <span class="badge bg-light text-dark">MATH202</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-outline-primary btn-sm" onclick="showAlert('Course added to cart')">
+                                            <i class="fas fa-plus"></i> Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Card 4 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-danger">PHYS</span>
+                                    <span class="badge bg-warning text-dark">Almost Full</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">PHYS202: Modern Physics</h5>
+                                    <p class="card-text small mb-2">Introduction to quantum mechanics and relativity theory.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 4 Credits</span>
+                                        <span><i class="fas fa-users"></i> 48/50 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">PHYS101</span>
+                                            <span class="badge bg-light text-dark">MATH201</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-outline-primary btn-sm" onclick="showAlert('Course added to cart')">
+                                            <i class="fas fa-plus"></i> Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Card 5 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-secondary">ENG</span>
+                                    <span class="badge bg-success">Available</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">ENG220: Technical Writing</h5>
+                                    <p class="card-text small mb-2">Develop skills in writing technical documentation and reports.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 3 Credits</span>
+                                        <span><i class="fas fa-users"></i> 22/35 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">ENG101</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-outline-primary btn-sm" onclick="showAlert('Course added to cart')">
+                                            <i class="fas fa-plus"></i> Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Card 6 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+                                    <span class="badge bg-primary">CSE</span>
+                                    <span class="badge bg-danger">Full</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">CSE310: Software Engineering</h5>
+                                    <p class="card-text small mb-2">Principles and practices of software development and project management.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span><i class="fas fa-clock"></i> 3 Credits</span>
+                                        <span><i class="fas fa-users"></i> 60/60 Seats</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="small text-muted">Prerequisites:</span>
+                                        <div class="d-flex flex-wrap gap-1 mt-1">
+                                            <span class="badge bg-light text-dark">CSE201</span>
+                                            <span class="badge bg-light text-dark">CSE205</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-secondary btn-sm" disabled>
+                                            <i class="fas fa-ban"></i> Full - Join Waitlist
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>Showing 6 of 48 courses</div>
+                        <nav aria-label="Course pagination">
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Course Cart Summary -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Your Current Cart</h5>
+                    <a href="#course-cart" class="btn btn-sm btn-outline-primary">View Full Cart</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Title</th>
+                                    <th>Credits</th>
+                                    <th>Department</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CSE201</td>
+                                    <td>Data Structures</td>
+                                    <td>3</td>
+                                    <td>Computer Science</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MATH301</td>
+                                    <td>Differential Equations</td>
+                                    <td>4</td>
+                                    <td>Mathematics</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>Total Credits:</strong> 7
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-danger btn-sm me-2">Clear Cart</button>
+                        <a href="#course-cart" class="btn btn-primary btn-sm">Proceed to Checkout</a>
                     </div>
                 </div>
             </div>
@@ -693,39 +912,125 @@
             <div class="row mb-4">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">Spring 2025 Registration</div>
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Spring 2025 Registration</span>
+                            <span class="badge bg-warning text-dark">In Progress</span>
+                        </div>
                         <div class="card-body">
+                            <!-- Registration Timeline -->
                             <div class="row mb-4">
                                 <div class="col-md-12">
-                                    <ul class="list-group">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <strong>Registration Submission</strong>
-                                                <div class="text-muted small">April 10, 2025</div>
+                                    <div class="registration-timeline mb-4">
+                                        <div class="timeline-container">
+                                            <div class="timeline-track"></div>
+                                            <div class="timeline-steps">
+                                                <div class="timeline-step completed">
+                                                    <div class="timeline-step-marker">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <div class="timeline-step-content">
+                                                        <h6>Submitted</h6>
+                                                        <p class="small text-muted">April 10, 2025</p>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-step completed">
+                                                    <div class="timeline-step-marker">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <div class="timeline-step-content">
+                                                        <h6>Advisor Approved</h6>
+                                                        <p class="small text-muted">April 12, 2025</p>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-step active">
+                                                    <div class="timeline-step-marker">
+                                                        <i class="fas fa-circle-notch fa-spin"></i>
+                                                    </div>
+                                                    <div class="timeline-step-content">
+                                                        <h6>HOD Review</h6>
+                                                        <p class="small text-muted">In Progress</p>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-step">
+                                                    <div class="timeline-step-marker">
+                                                        <i class="fas fa-dollar-sign"></i>
+                                                    </div>
+                                                    <div class="timeline-step-content">
+                                                        <h6>Payment</h6>
+                                                        <p class="small text-muted">Pending</p>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-step">
+                                                    <div class="timeline-step-marker">
+                                                        <i class="fas fa-flag-checkered"></i>
+                                                    </div>
+                                                    <div class="timeline-step-content">
+                                                        <h6>Completed</h6>
+                                                        <p class="small text-muted">Pending</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <span class="badge bg-success">Completed</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <strong>Advisor Approval</strong>
-                                                <div class="text-muted small">April 12, 2025</div>
-                                            </div>
-                                            <span class="badge bg-success">Approved</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <strong>HOD Approval</strong>
-                                                <div class="text-muted small">Pending</div>
-                                            </div>
-                                            <span class="badge bg-warning text-dark">In Progress</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <strong>Payment</strong>
-                                            </div>
-                                            <span class="badge bg-secondary">Pending</span>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Registration Details -->
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-header">Registration Information</div>
+                                        <div class="card-body">
+                                            <dl class="row mb-0">
+                                                <dt class="col-sm-5">Student ID:</dt>
+                                                <dd class="col-sm-7">20210001</dd>
+                                                
+                                                <dt class="col-sm-5">Semester:</dt>
+                                                <dd class="col-sm-7">Spring 2025</dd>
+                                                
+                                                <dt class="col-sm-5">Submission Date:</dt>
+                                                <dd class="col-sm-7">April 10, 2025</dd>
+                                                
+                                                <dt class="col-sm-5">Advisor:</dt>
+                                                <dd class="col-sm-7">Dr. Smith</dd>
+                                                
+                                                <dt class="col-sm-5">Advisor Approval:</dt>
+                                                <dd class="col-sm-7"><span class="badge bg-success">Approved</span></dd>
+                                                
+                                                <dt class="col-sm-5">HOD Approval:</dt>
+                                                <dd class="col-sm-7"><span class="badge bg-warning text-dark">Pending</span></dd>
+                                                
+                                                <dt class="col-sm-5">Payment Status:</dt>
+                                                <dd class="col-sm-7"><span class="badge bg-secondary">Not Started</span></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-header">Fee Summary</div>
+                                        <div class="card-body">
+                                            <dl class="row mb-0">
+                                                <dt class="col-sm-6">Total Courses:</dt>
+                                                <dd class="col-sm-6">3</dd>
+                                                
+                                                <dt class="col-sm-6">Total Credits:</dt>
+                                                <dd class="col-sm-6">10</dd>
+                                                
+                                                <dt class="col-sm-6">Credit Hour Rate:</dt>
+                                                <dd class="col-sm-6">$125.00</dd>
+                                                
+                                                <dt class="col-sm-6">Subtotal:</dt>
+                                                <dd class="col-sm-6">$1,250.00</dd>
+                                                
+                                                <dt class="col-sm-6">Waiver (20%):</dt>
+                                                <dd class="col-sm-6">-$250.00</dd>
+                                                
+                                                <dt class="col-sm-6 border-top pt-2"><strong>Total Due:</strong></dt>
+                                                <dd class="col-sm-6 border-top pt-2"><strong>$1,000.00</strong></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -737,7 +1042,8 @@
                                             <th>Code</th>
                                             <th>Course Name</th>
                                             <th>Credits</th>
-                                            <th>Status</th>
+                                            <th>Advisor</th>
+                                            <th>HOD</th>
                                             <th>Notes</th>
                                         </tr>
                                     </thead>
@@ -747,30 +1053,33 @@
                                             <td>Data Structures</td>
                                             <td>3</td>
                                             <td><span class="status-badge status-approved">Approved</span></td>
-                                            <td>-</td>
+                                            <td><span class="status-badge status-pending">Pending</span></td>
+                                            <td><button type="button" class="btn btn-sm btn-link" data-bs-toggle="tooltip" title="Great choice for a CS student">View note</button></td>
                                         </tr>
                                         <tr>
                                             <td>CSE205</td>
                                             <td>Database Systems</td>
                                             <td>3</td>
                                             <td><span class="status-badge status-approved">Approved</span></td>
+                                            <td><span class="status-badge status-pending">Pending</span></td>
                                             <td>-</td>
                                         </tr>
                                         <tr>
                                             <td>MATH301</td>
                                             <td>Differential Equations</td>
                                             <td>4</td>
+                                            <td><span class="status-badge status-approved">Approved</span></td>
                                             <td><span class="status-badge status-pending">Pending</span></td>
-                                            <td>HOD review in process</td>
+                                            <td><button type="button" class="btn btn-sm btn-link" data-bs-toggle="tooltip" title="Prerequisite verification completed">View note</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             
-                            <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                            <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
                                 <button class="btn btn-primary" disabled>Proceed to Payment</button>
                                 <div class="text-center text-muted small mt-2">
-                                    <i class="fas fa-info-circle"></i> Payment will be available after all approvals are complete.
+                                    <i class="fas fa-info-circle"></i> Payment will be available after HOD approval is complete.
                                 </div>
                             </div>
                         </div>
@@ -780,9 +1089,9 @@
         </div>
     </section>
 
-    <!-- Payment Portal -->
-    <section id="payment" style="display: none;">
-        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <!-- Payment Page -->
+    <section id="payment-page" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #2c3e50;">
             <div class="container">
                 <a class="navbar-brand" href="#">CourseSphere</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -794,13 +1103,13 @@
                             <a class="nav-link" href="#student-dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#course-catalog">Course Catalog</a>
+                            <a class="nav-link" href="#courses">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#course-cart">Cart</a>
+                            <a class="nav-link" href="#registration">Registration</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#registration-status">Registration Status</a>
+                            <a class="nav-link active" href="#payment-page">Payment</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
@@ -810,111 +1119,532 @@
                 </div>
             </div>
         </nav>
-        
-        <div class="container">
+
+        <div class="container mb-5">
             <div class="row mb-4">
-                <div class="col">
-                    <h1>Payment Portal</h1>
-                    <p class="lead">Complete your registration payment</p>
+                <div class="col-12">
+                    <h2>Payment</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#student-dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#registration">Registration</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
-            
+
             <div class="row">
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-header">Payment Summary</div>
+                <div class="col-lg-8">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">Payment Method</h5>
+                        </div>
                         <div class="card-body">
-                            <h6 class="mb-3">Spring 2025 Registration</h6>
-                            <div class="table-responsive">
-                                <table class="table table-sm">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Course</th>
-                                            <th>Credits</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>CSE201: Data Structures</td>
-                                            <td>3</td>
-                                            <td>$375.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CSE205: Database Systems</td>
-                                            <td>3</td>
-                                            <td>$375.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>MATH301: Differential Equations</td>
-                                            <td>4</td>
-                                            <td>$500.00</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="2"><strong>Subtotal</strong></td>
-                                            <td><strong>$1,250.00</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Waiver (20%)</td>
-                                            <td>-$250.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2"><strong>Total Due</strong></td>
-                                            <td><strong>$1,000.00</strong></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                            <ul class="nav nav-pills nav-fill mb-4" id="paymentTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="credit-card-tab" data-bs-toggle="pill" data-bs-target="#credit-card" type="button" role="tab" aria-controls="credit-card" aria-selected="true">
+                                        <i class="fas fa-credit-card me-2"></i> Credit Card
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bank-transfer-tab" data-bs-toggle="pill" data-bs-target="#bank-transfer" type="button" role="tab" aria-controls="bank-transfer" aria-selected="false">
+                                        <i class="fas fa-university me-2"></i> Bank Transfer
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="paypal-tab" data-bs-toggle="pill" data-bs-target="#paypal" type="button" role="tab" aria-controls="paypal" aria-selected="false">
+                                        <i class="fab fa-paypal me-2"></i> PayPal
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="paymentTabsContent">
+                                <!-- Credit Card Form -->
+                                <div class="tab-pane fade show active" id="credit-card" role="tabpanel" aria-labelledby="credit-card-tab">
+                                    <form id="credit-card-form">
+                                        <div class="mb-3">
+                                            <label for="cardName" class="form-label">Name on Card</label>
+                                            <input type="text" class="form-control" id="cardName" placeholder="John Doe" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="cardNumber" class="form-label">Card Number</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                                <span class="input-group-text">
+                                                    <i class="fab fa-cc-visa me-1"></i>
+                                                    <i class="fab fa-cc-mastercard me-1"></i>
+                                                    <i class="fab fa-cc-amex"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="expDate" class="form-label">Expiration Date</label>
+                                                <input type="text" class="form-control" id="expDate" placeholder="MM/YY" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="cvv" class="form-label">CVV</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="3 or 4 digit security code on the back of your card">
+                                                        <i class="fas fa-question-circle"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="billingAddress" class="form-label">Billing Address</label>
+                                            <input type="text" class="form-control mb-2" id="billingAddress" placeholder="Street Address" required>
+                                            <input type="text" class="form-control mb-2" id="billingAddressLine2" placeholder="Apt, Suite, etc. (optional)">
+                                            <div class="row">
+                                                <div class="col-md-4 mb-2">
+                                                    <input type="text" class="form-control" id="billingCity" placeholder="City" required>
+                                                </div>
+                                                <div class="col-md-4 mb-2">
+                                                    <select class="form-select" id="billingState" required>
+                                                        <option value="" selected disabled>State</option>
+                                                        <option value="AL">Alabama</option>
+                                                        <option value="AK">Alaska</option>
+                                                        <option value="AZ">Arizona</option>
+                                                        <!-- Additional states would go here -->
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-2">
+                                                    <input type="text" class="form-control" id="billingZip" placeholder="Zip Code" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="saveCard">
+                                            <label class="form-check-label" for="saveCard">
+                                                Save card for future payments
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Bank Transfer -->
+                                <div class="tab-pane fade" id="bank-transfer" role="tabpanel" aria-labelledby="bank-transfer-tab">
+                                    <div class="alert alert-info mb-4">
+                                        <i class="fas fa-info-circle me-2"></i> Please make your payment directly to our bank account. Your registration will be confirmed once the payment is cleared.
+                                    </div>
+
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Bank Account Details</h6>
+                                            <table class="table table-sm table-borderless">
+                                                <tbody>
+                                                    <tr>
+                                                        <th width="30%">Bank Name:</th>
+                                                        <td>University Federal Credit Union</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Account Name:</th>
+                                                        <td>CourseSphere University</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Account Number:</th>
+                                                        <td>1234567890</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Routing Number:</th>
+                                                        <td>987654321</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Reference:</th>
+                                                        <td><span class="badge bg-primary">STU-20210001</span> <small class="text-muted">(Please include this in the payment reference)</small></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <form id="bank-transfer-form">
+                                        <div class="mb-3">
+                                            <label for="transferDate" class="form-label">Transfer Date</label>
+                                            <input type="date" class="form-control" id="transferDate" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="transferReference" class="form-label">Transfer Reference</label>
+                                            <input type="text" class="form-control" id="transferReference" placeholder="e.g., Transfer/Bank receipt number" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="transferProof" class="form-label">Upload Payment Proof</label>
+                                            <input type="file" class="form-control" id="transferProof">
+                                            <div class="form-text">Optional: Upload a screenshot or photo of your payment confirmation</div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- PayPal -->
+                                <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                                    <div class="text-center py-4">
+                                        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="PayPal Checkout" class="img-fluid mb-4" style="max-width: 250px;">
+                                        <p class="mb-4">You will be redirected to PayPal to complete your payment securely.</p>
+                                        <button type="button" class="btn btn-primary btn-lg" id="paypalCheckoutBtn">
+                                            <i class="fab fa-paypal me-2"></i> Pay with PayPal
+                                        </button>
+                                        <div class="mt-3 text-muted small">
+                                            <i class="fas fa-lock me-1"></i> Your payment information is secured by PayPal
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">Billing Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="billing-info-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" value="John" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" value="Doe" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" value="john.doe@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone" value="(555) 123-4567" required>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="receiveReceipt" checked>
+                                    <label class="form-check-label" for="receiveReceipt">
+                                        Email me a copy of the receipt
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Order Summary -->
+                    <div class="card shadow-sm mb-4" style="position: sticky; top: 20px;">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">Order Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h6 class="fw-bold">Spring Semester 2025</h6>
+                                <span class="badge bg-primary">ID: 20210001</span>
+                            </div>
+                            
+                            <div class="card bg-light mb-3">
+                                <div class="card-body py-2 px-3">
+                                    <small class="text-muted d-block mb-1">REGISTERED COURSES</small>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span>CSE201: Data Structures</span>
+                                        <span>$1,200.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span>CSE205: Database Systems</span>
+                                        <span>$1,200.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span>MATH301: Differential Equations</span>
+                                        <span>$1,500.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tuition Subtotal</span>
+                                <span>$3,900.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Technology Fee</span>
+                                <span>$250.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Registration Fee</span>
+                                <span>$75.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Library Fee</span>
+                                <span>$100.00</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-bold">Total Amount</span>
+                                <span class="fw-bold">$4,325.00</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between text-success mb-2">
+                                <span>Scholarship Applied</span>
+                                <span>- $1,500.00</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="d-flex justify-content-between mb-4">
+                                <h5 class="fw-bold">Amount Due</h5>
+                                <h5 class="fw-bold">$2,825.00</h5>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="button" class="btn btn-primary btn-lg" id="proceedPaymentBtn" data-bs-toggle="modal" data-bs-target="#paymentSuccessModal">
+                                    <i class="fas fa-lock me-2"></i> Complete Payment
+                                </button>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-shield-alt me-1"></i> Secure payment processing
+                                </small>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Payment Methods" class="img-fluid" style="max-width: 250px;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Need Help -->
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Need Help?</h6>
+                            <p class="card-text small">If you have questions about your payment or billing, please contact our student finance office.</p>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-question-circle me-1"></i> Payment FAQ
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-envelope me-1"></i> Contact Financial Aid
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-7">
+            </div>
+        </div>
+
+        <!-- Payment Success Modal -->
+        <div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title">Payment Successful</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle fa-5x text-success"></i>
+                        </div>
+                        <h4>Thank You!</h4>
+                        <p class="lead">Your payment has been processed successfully.</p>
+                        <div class="alert alert-light border mb-4">
+                            <div class="row">
+                                <div class="col-6 text-start">Transaction ID</div>
+                                <div class="col-6 text-end fw-bold">#TRX-8724691</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">Amount Paid</div>
+                                <div class="col-6 text-end fw-bold">$2,825.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">Date</div>
+                                <div class="col-6 text-end">April 17, 2025</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-start">Payment Method</div>
+                                <div class="col-6 text-end">Credit Card (****4567)</div>
+                            </div>
+                        </div>
+                        <p>A receipt has been sent to your email: <strong>john.doe@example.com</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#downloadReceiptModal">
+                            <i class="fas fa-download me-1"></i> Download Receipt
+                        </button>
+                        <a href="#student-dashboard" class="btn btn-primary" data-bs-dismiss="modal">
+                            Go to Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Download Receipt Modal -->
+        <div class="modal fade" id="downloadReceiptModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Payment Receipt</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="container-fluid">
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <h4>CourseSphere University</h4>
+                                    <p class="mb-0">123 Education Avenue</p>
+                                    <p class="mb-0">Academic City, AC 12345</p>
+                                    <p>Phone: (555) 987-6543</p>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <h5>RECEIPT</h5>
+                                    <p class="mb-0"><strong>Receipt No:</strong> R-29385-2025</p>
+                                    <p class="mb-0"><strong>Date:</strong> April 17, 2025</p>
+                                    <p><strong>Transaction ID:</strong> TRX-8724691</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <h6>Billed To:</h6>
+                                    <p class="mb-0">John Doe</p>
+                                    <p class="mb-0">Student ID: 20210001</p>
+                                    <p class="mb-0">john.doe@example.com</p>
+                                    <p>(555) 123-4567</p>
+                                </div>
+                                <div class="col-6">
+                                    <h6>Payment Information:</h6>
+                                    <p class="mb-0"><strong>Method:</strong> Credit Card (****4567)</p>
+                                    <p class="mb-0"><strong>Status:</strong> <span class="badge bg-success">Paid</span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                                <th class="text-end">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tuition - CSE201: Data Structures</td>
+                                                <td class="text-end">$1,200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tuition - CSE205: Database Systems</td>
+                                                <td class="text-end">$1,200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tuition - MATH301: Differential Equations</td>
+                                                <td class="text-end">$1,500.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Technology Fee</td>
+                                                <td class="text-end">$250.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Registration Fee</td>
+                                                <td class="text-end">$75.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Library Fee</td>
+                                                <td class="text-end">$100.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Subtotal</strong></td>
+                                                <td class="text-end"><strong>$4,325.00</strong></td>
+                                            </tr>
+                                            <tr class="text-success">
+                                                <td>Scholarship Applied</td>
+                                                <td class="text-end">- $1,500.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total Paid</strong></td>
+                                                <td class="text-end"><strong>$2,825.00</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="alert alert-light border">
+                                        <h6>Note:</h6>
+                                        <p class="mb-0 small">This receipt is your proof of payment for the Spring Semester 2025. Please retain this document for your records. For any questions regarding your payment, please contact the Student Finance Office at finance@coursesphere.edu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-print me-1"></i> Print Receipt
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-download me-1"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registered Courses -->
+        <div class="container" id="registered-courses" style="display: none;">
+            <div class="row mb-4">
+                <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Payment Information</div>
+                        <div class="card-header">
+                            <h5 class="mb-0">Registered Courses</h5>
+                        </div>
                         <div class="card-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="paymentMethod" class="form-label">Payment Method</label>
-                                    <select class="form-select" id="paymentMethod">
-                                        <option>Credit Card</option>
-                                        <option>Debit Card</option>
-                                        <option>Bank Transfer</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="cardNumber" class="form-label">Card Number</label>
-                                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="expiryDate" class="form-label">Expiry Date</label>
-                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="cvv" class="form-label">CVV</label>
-                                        <input type="text" class="form-control" id="cvv" placeholder="123">
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="cardHolder" class="form-label">Cardholder Name</label>
-                                    <input type="text" class="form-control" id="cardHolder" placeholder="John Doe">
-                                </div>
-                                
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="saveCard">
-                                    <label class="form-check-label" for="saveCard">Save card for future payments</label>
-                                </div>
-                                
-                                <div class="d-grid gap-2">
-                                    <a href="#student-dashboard" class="btn btn-primary">Complete Payment</a>
-                                </div>
-                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Code</th>
+                                            <th>Course Name</th>
+                                            <th>Credits</th>
+                                            <th>Schedule</th>
+                                            <th>Professor</th>
+                                            <th>Room</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201</td>
+                                            <td>Data Structures</td>
+                                            <td>3</td>
+                                            <td>MWF 10:00-11:15</td>
+                                            <td>Dr. Johnson</td>
+                                            <td>Tech Building 305</td>
+                                            <td><span class="badge bg-success">Enrolled</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205</td>
+                                            <td>Database Systems</td>
+                                            <td>3</td>
+                                            <td>TTh 13:00-14:15</td>
+                                            <td>Prof. Garcia</td>
+                                            <td>Tech Building 201</td>
+                                            <td><span class="badge bg-success">Enrolled</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301</td>
+                                            <td>Differential Equations</td>
+                                            <td>4</td>
+                                            <td>TTh 10:00-11:50</td>
+                                            <td>Dr. Martinez</td>
+                                            <td>Science Hall 105</td>
+                                            <td><span class="badge bg-success">Enrolled</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -924,7 +1654,7 @@
 
     <!-- Advisor Dashboard -->
     <section id="advisor-dashboard" style="display: none;">
-        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #2c3e50;">
             <div class="container">
                 <a class="navbar-brand" href="#">CourseSphere</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -936,14 +1666,17 @@
                             <a class="nav-link active" href="#advisor-dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#approval">Registration Approval</a>
+                            <a class="nav-link" href="#approval">Pending Approvals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Student Management</a>
+                            <a class="nav-link" href="#">Student Records</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reports</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <span class="text-light me-3">Dr. Smith (Advisor)</span>
+                        <span class="text-light me-3">Dr. Smith</span>
                         <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
                     </div>
                 </div>
@@ -954,100 +1687,189 @@
             <div class="row mb-4">
                 <div class="col">
                     <h1>Advisor Dashboard</h1>
-                    <p class="lead">Manage student registrations and approvals</p>
+                    <p class="lead">Manage student course registrations and approvals</p>
                 </div>
             </div>
             
+            <!-- Dashboard Stats -->
             <div class="row mb-4">
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-user-graduate"></i>
+                            <div class="number">42</div>
+                            <div class="label">Assigned Students</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card dashboard-stat">
                         <div class="card-body">
                             <i class="fas fa-clock"></i>
-                            <div class="number">8</div>
+                            <div class="number">15</div>
                             <div class="label">Pending Approvals</div>
                         </div>
-                        <div class="card-footer text-center">
-                            <a href="#approval" class="btn btn-sm btn-primary">Review Now</a>
-                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card dashboard-stat">
-                        <div class="card-body">
-                            <i class="fas fa-users"></i>
-                            <div class="number">45</div>
-                            <div class="label">Assigned Students</div>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn btn-sm btn-primary">View List</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card dashboard-stat">
                         <div class="card-body">
                             <i class="fas fa-check-circle"></i>
-                            <div class="number">32</div>
-                            <div class="label">Approved Registrations</div>
+                            <div class="number">27</div>
+                            <div class="label">Approved Requests</div>
                         </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn btn-sm btn-primary">View All</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="number">5</div>
+                            <div class="label">Days to Deadline</div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">Recent Activities</div>
+                <!-- Pending Approvals Section -->
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Pending Approvals</h5>
+                            <a href="#approval" class="btn btn-sm btn-primary">View All</a>
+                        </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table mb-0">
+                                <table class="table table-hover mb-0">
                                     <thead class="table-light">
                                         <tr>
-                                            <th>Student</th>
-                                            <th>Activity</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Program</th>
+                                            <th>Courses</th>
+                                            <th>Submitted</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>20210001</td>
                                             <td>John Doe</td>
-                                            <td>Registration Submission</td>
+                                            <td>BS Computer Science</td>
+                                            <td>3 courses</td>
                                             <td>April 10, 2025</td>
-                                            <td><span class="status-badge status-pending">Pending</span></td>
-                                            <td><a href="#approval" class="btn btn-sm btn-primary">Review</a></td>
+                                            <td>
+                                                <a href="#approval" class="btn btn-sm btn-outline-primary">Review</a>
+                                            </td>
                                         </tr>
                                         <tr>
+                                            <td>20210015</td>
                                             <td>Jane Smith</td>
-                                            <td>Registration Submission</td>
-                                            <td>April 9, 2025</td>
-                                            <td><span class="status-badge status-pending">Pending</span></td>
-                                            <td><a href="#approval" class="btn btn-sm btn-primary">Review</a></td>
+                                            <td>BS Mathematics</td>
+                                            <td>4 courses</td>
+                                            <td>April 12, 2025</td>
+                                            <td>
+                                                <a href="#approval" class="btn btn-sm btn-outline-primary">Review</a>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Mike Johnson</td>
-                                            <td>Registration Submission</td>
-                                            <td>April 9, 2025</td>
-                                            <td><span class="status-badge status-approved">Approved</span></td>
-                                            <td><button class="btn btn-sm btn-secondary" disabled>Reviewed</button></td>
+                                            <td>20210042</td>
+                                            <td>Michael Johnson</td>
+                                            <td>BS Electrical Engineering</td>
+                                            <td>5 courses</td>
+                                            <td>April 13, 2025</td>
+                                            <td>
+                                                <a href="#approval" class="btn btn-sm btn-outline-primary">Review</a>
+                                            </td>
                                         </tr>
                                         <tr>
+                                            <td>20210078</td>
                                             <td>Sarah Williams</td>
-                                            <td>Registration Submission</td>
-                                            <td>April 8, 2025</td>
-                                            <td><span class="status-badge status-rejected">Rejected</span></td>
-                                            <td><button class="btn btn-sm btn-secondary" disabled>Reviewed</button></td>
+                                            <td>BS Physics</td>
+                                            <td>3 courses</td>
+                                            <td>April 15, 2025</td>
+                                            <td>
+                                                <a href="#approval" class="btn btn-sm btn-outline-primary">Review</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>20210103</td>
+                                            <td>David Brown</td>
+                                            <td>BS Computer Science</td>
+                                            <td>4 courses</td>
+                                            <td>April 16, 2025</td>
+                                            <td>
+                                                <a href="#approval" class="btn btn-sm btn-outline-primary">Review</a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="#" class="btn btn-sm btn-secondary">View All Activities</a>
+                            <a href="#approval" class="text-decoration-none">View all 15 pending approvals</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity & Notifications -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Recent Activity</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Approved Jane Smith's registration</h6>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Approved 4 courses for Spring 2025</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Rejected course for David Brown</h6>
+                                        <small class="text-muted">Yesterday</small>
+                                    </div>
+                                    <p class="mb-1 small">CSE401: Prerequisites not met</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Approved Michael Johnson's registration</h6>
+                                        <small class="text-muted">2 days ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Approved 5 courses for Spring 2025</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Approved Sarah Williams's registration</h6>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Approved 3 courses for Spring 2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Important Notices</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning mb-3">
+                                <strong>Registration Deadline Approaching</strong>
+                                <p class="mb-0 small">Spring 2025 registration deadline is in 5 days (April 22, 2025).</p>
+                            </div>
+                            <div class="alert alert-info mb-3">
+                                <strong>Department Meeting</strong>
+                                <p class="mb-0 small">Upcoming meeting on April 19, 2025 to discuss course capacity issues.</p>
+                            </div>
+                            <div class="alert alert-success mb-0">
+                                <strong>New Course Offerings</strong>
+                                <p class="mb-0 small">10 new courses have been added for the Fall 2025 semester.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1057,7 +1879,7 @@
 
     <!-- Registration Approval -->
     <section id="approval" style="display: none;">
-        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4" style="background-color: #2c3e50;">
             <div class="container">
                 <a class="navbar-brand" href="#">CourseSphere</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1069,14 +1891,17 @@
                             <a class="nav-link" href="#advisor-dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#approval">Registration Approval</a>
+                            <a class="nav-link active" href="#approval">Pending Approvals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Student Management</a>
+                            <a class="nav-link" href="#">Student Records</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reports</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <span class="text-light me-3">Dr. Smith (Advisor)</span>
+                        <span class="text-light me-3">Dr. Smith</span>
                         <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
                     </div>
                 </div>
@@ -1087,126 +1912,1005 @@
             <div class="row mb-4">
                 <div class="col">
                     <h1>Registration Approval</h1>
-                    <p class="lead">Review and process student registration requests</p>
+                    <p class="lead">Review and approve student course registration requests</p>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">Pending Approvals</div>
-                        <div class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action active">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">John Doe</h6>
-                                    <small>10 Apr</small>
-                                </div>
-                                <p class="mb-1">3 courses</p>
-                                <small>ID: 20210001</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Jane Smith</h6>
-                                    <small>9 Apr</small>
-                                </div>
-                                <p class="mb-1">4 courses</p>
-                                <small>ID: 20210015</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Robert Johnson</h6>
-                                    <small>9 Apr</small>
-                                </div>
-                                <p class="mb-1">2 courses</p>
-                                <small>ID: 20210022</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Emily Davis</h6>
-                                    <small>8 Apr</small>
-                                </div>
-                                <p class="mb-1">5 courses</p>
-                                <small>ID: 20210008</small>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-8">
+            <div class="row mb-4">
+                <div class="col">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <span>Registration Details</span>
-                            <span class="badge bg-primary">John Doe (ID: 20210001)</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <p><strong>Student:</strong> John Doe</p>
-                                    <p><strong>ID:</strong> 20210001</p>
-                                    <p><strong>Department:</strong> Computer Science</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><strong>Semester:</strong> Spring 2025</p>
-                                    <p><strong>Submission Date:</strong> April 10, 2025</p>
-                                    <p><strong>Status:</strong> Pending Advisor Approval</p>
-                                </div>
+                            <h5 class="mb-0">Pending Approvals (15)</h5>
+                            <div>
+                                <select class="form-select form-select-sm me-2 d-inline-block" style="width: auto;">
+                                    <option selected>All Programs</option>
+                                    <option>BS Computer Science</option>
+                                    <option>BS Mathematics</option>
+                                    <option>BS Electrical Engineering</option>
+                                    <option>BS Physics</option>
+                                </select>
+                                <input type="text" class="form-control form-control-sm d-inline-block" placeholder="Search" style="width: 180px;">
                             </div>
-                            
-                            <div class="table-responsive mb-4">
-                                <table class="table table-bordered">
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped mb-0">
                                     <thead class="table-light">
                                         <tr>
-                                            <th>Course Code</th>
-                                            <th>Course Name</th>
+                                            <th>
+                                                <input class="form-check-input" type="checkbox" id="selectAll">
+                                            </th>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Program</th>
+                                            <th>GPA</th>
                                             <th>Credits</th>
-                                            <th>Approve</th>
+                                            <th>Submitted</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>CSE201</td>
-                                            <td>Data Structures</td>
-                                            <td>3</td>
                                             <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" checked>
-                                                </div>
+                                                <input class="form-check-input" type="checkbox">
+                                            </td>
+                                            <td>20210001</td>
+                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#studentModal">John Doe</a></td>
+                                            <td>BS Computer Science</td>
+                                            <td>3.7</td>
+                                            <td>12</td>
+                                            <td>April 10, 2025</td>
+                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal">Review</button>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>CSE205</td>
-                                            <td>Database Systems</td>
-                                            <td>3</td>
                                             <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" checked>
-                                                </div>
+                                                <input class="form-check-input" type="checkbox">
+                                            </td>
+                                            <td>20210015</td>
+                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#studentModal">Jane Smith</a></td>
+                                            <td>BS Mathematics</td>
+                                            <td>3.9</td>
+                                            <td>15</td>
+                                            <td>April 12, 2025</td>
+                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal">Review</button>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>MATH301</td>
-                                            <td>Differential Equations</td>
-                                            <td>4</td>
                                             <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" checked>
-                                                </div>
+                                                <input class="form-check-input" type="checkbox">
+                                            </td>
+                                            <td>20210042</td>
+                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#studentModal">Michael Johnson</a></td>
+                                            <td>BS Electrical Engineering</td>
+                                            <td>3.5</td>
+                                            <td>16</td>
+                                            <td>April 13, 2025</td>
+                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal">Review</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-check-input" type="checkbox">
+                                            </td>
+                                            <td>20210078</td>
+                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#studentModal">Sarah Williams</a></td>
+                                            <td>BS Physics</td>
+                                            <td>3.8</td>
+                                            <td>12</td>
+                                            <td>April 15, 2025</td>
+                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal">Review</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="form-check-input" type="checkbox">
+                                            </td>
+                                            <td>20210103</td>
+                                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#studentModal">David Brown</a></td>
+                                            <td>BS Computer Science</td>
+                                            <td>3.2</td>
+                                            <td>12</td>
+                                            <td>April 16, 2025</td>
+                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal">Review</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            
-                            <div class="mb-3">
-                                <label for="rejectionReason" class="form-label">Rejection Reason (if applicable)</label>
-                                <textarea class="form-control" id="rejectionReason" rows="3" placeholder="Enter reason for rejection if any courses are not approved"></textarea>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <div>
+                                <button class="btn btn-outline-success me-2" id="bulkApproveBtn">
+                                    <i class="fas fa-check"></i> Approve Selected
+                                </button>
+                                <button class="btn btn-outline-danger" id="bulkRejectBtn">
+                                    <i class="fas fa-times"></i> Reject Selected
+                                </button>
                             </div>
-                            
-                            <div class="d-flex justify-content-end">
-                                <button class="btn btn-danger me-2">Reject</button>
-                                <a href="#advisor-dashboard" class="btn btn-success">Approve</a>
+                            <nav>
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Recent Actions</h5>
+                            <div>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option selected>Last 7 Days</option>
+                                    <option>Last 30 Days</option>
+                                    <option>Current Semester</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Student</th>
+                                            <th>Program</th>
+                                            <th>Courses</th>
+                                            <th>Action</th>
+                                            <th>Date</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Emily Garcia (20210022)</td>
+                                            <td>BS Computer Science</td>
+                                            <td>4 courses</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <td>April 16, 2025</td>
+                                            <td>Strong academic performance</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Robert Chen (20210032)</td>
+                                            <td>BS Physics</td>
+                                            <td>3 courses</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <td>April 15, 2025</td>
+                                            <td>Prerequisites verified</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amanda Kumar (20210056)</td>
+                                            <td>BS Mathematics</td>
+                                            <td>1 course</td>
+                                            <td><span class="badge bg-danger">Rejected</span></td>
+                                            <td>April 14, 2025</td>
+                                            <td>Prerequisites not met for MATH401</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Profile Modal -->
+        <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="studentModalLabel">Student Profile: John Doe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <img src="https://via.placeholder.com/150" alt="Student Photo" class="img-thumbnail rounded-circle mb-3">
+                                <h5>John Doe</h5>
+                                <p class="text-muted">ID: 20210001</p>
+                                <div class="badge bg-primary mb-2">BS Computer Science</div>
+                                <div class="d-grid gap-2 mt-3">
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-envelope me-1"></i> Send Message
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-history me-1"></i> View History
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h6>Academic Information</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <th width="40%">Program</th>
+                                                <td>BS Computer Science</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Year Level</th>
+                                                <td>3rd Year</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Major</th>
+                                                <td>Software Engineering</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Credits Completed</th>
+                                                <td>72 / 120</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Current GPA</th>
+                                                <td>3.7 / 4.0</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Academic Standing</th>
+                                                <td><span class="badge bg-success">Good Standing</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h6 class="mt-4">Current Semester</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credits</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>CSE101: Intro to Programming</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MATH201: Calculus II</td>
+                                                <td>4</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ENG202: Technical Writing</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PHY101: Physics I</td>
+                                                <td>4</td>
+                                                <td>B</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <h6>Notes & Flags</h6>
+                                <div class="alert alert-info mb-2">
+                                    <small><strong>March 15, 2025:</strong> Student received academic achievement award for excellence in programming.</small>
+                                </div>
+                                <div class="alert alert-warning mb-0">
+                                    <small><strong>February 10, 2025:</strong> Student requested additional support for MATH201.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="#approval" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#approvalModal" data-bs-dismiss="modal">Review Registration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course Approval Modal -->
+        <div class="modal fade" id="approvalModal" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="approvalModalLabel">Registration Review: John Doe (20210001)</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <!-- Student Summary Card -->
+                                <div class="card mb-4 bg-light">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-1 text-center">
+                                                <img src="https://via.placeholder.com/50" alt="Student" class="rounded-circle">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="mb-0">John Doe (ID: 20210001)</h6>
+                                                <div class="small text-muted">BS Computer Science, 3rd Year</div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="row text-center">
+                                                    <div class="col-3">
+                                                        <div class="fw-bold">3.7/4.0</div>
+                                                        <div class="small text-muted">GPA</div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="fw-bold">72/120</div>
+                                                        <div class="small text-muted">Credits</div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="fw-bold">12</div>
+                                                        <div class="small text-muted">Current Load</div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="badge bg-success">Good Standing</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Courses for Approval -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h6 class="mb-0">Courses for Approval</h6>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>
+                                                            <input class="form-check-input" type="checkbox" checked>
+                                                        </th>
+                                                        <th>Course</th>
+                                                        <th>Credits</th>
+                                                        <th>Prerequisites</th>
+                                                        <th>Section/Schedule</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-check-input" type="checkbox" checked>
+                                                        </td>
+                                                        <td>
+                                                            <div class="fw-bold">CSE201: Data Structures</div>
+                                                            <div class="small text-muted">Computer Science Department</div>
+                                                        </td>
+                                                        <td>3</td>
+                                                        <td>
+                                                            <span class="badge bg-success">CSE101 ✓</span>
+                                                        </td>
+                                                        <td>Section A, MWF 10:00-11:15</td>
+                                                        <td>
+                                                            <select class="form-select form-select-sm">
+                                                                <option value="approved" selected>Approve</option>
+                                                                <option value="rejected">Reject</option>
+                                                                <option value="pending">Pending</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-check-input" type="checkbox" checked>
+                                                        </td>
+                                                        <td>
+                                                            <div class="fw-bold">CSE205: Database Systems</div>
+                                                            <div class="small text-muted">Computer Science Department</div>
+                                                        </td>
+                                                        <td>3</td>
+                                                        <td>
+                                                            <span class="badge bg-success">CSE101 ✓</span>
+                                                        </td>
+                                                        <td>Section B, TTh 13:00-14:15</td>
+                                                        <td>
+                                                            <select class="form-select form-select-sm">
+                                                                <option value="approved" selected>Approve</option>
+                                                                <option value="rejected">Reject</option>
+                                                                <option value="pending">Pending</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-check-input" type="checkbox" checked>
+                                                        </td>
+                                                        <td>
+                                                            <div class="fw-bold">MATH301: Differential Equations</div>
+                                                            <div class="small text-muted">Mathematics Department</div>
+                                                        </td>
+                                                        <td>4</td>
+                                                        <td>
+                                                            <span class="badge bg-success">MATH201 ✓</span>
+                                                            <span class="badge bg-success">MATH202 ✓</span>
+                                                        </td>
+                                                        <td>Section A, TTh 10:00-11:50</td>
+                                                        <td>
+                                                            <select class="form-select form-select-sm">
+                                                                <option value="approved" selected>Approve</option>
+                                                                <option value="rejected">Reject</option>
+                                                                <option value="pending">Pending</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <strong>Total Credits:</strong> 10 credits
+                                            </div>
+                                            <div>
+                                                <strong>Load Status:</strong> <span class="badge bg-success">Within limits (12-18 credits)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Approval Page -->
+    <section id="admin-approval" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#admin-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#admin-approval">Approvals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#user-management">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#system-config">System</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">Admin User</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Registration Approvals</h1>
+                    <p class="lead">Manage and process registration approval requests</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Approval Queue</h5>
+                                <div>
+                                    <div class="input-group">
+                                        <select class="form-select form-select-sm" id="approvalFilterSelect">
+                                            <option value="all">All Departments</option>
+                                            <option value="cse">Computer Science</option>
+                                            <option value="math">Mathematics</option>
+                                            <option value="bus">Business</option>
+                                        </select>
+                                        <select class="form-select form-select-sm ms-2">
+                                            <option value="pending">Pending Approvals</option>
+                                            <option value="approved">Approved</option>
+                                            <option value="rejected">Rejected</option>
+                                            <option value="all">All Statuses</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" data-bs-toggle="tooltip" title="Refresh list">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="selectAll">
+                                                    <label class="form-check-label" for="selectAll"></label>
+                                                </div>
+                                            </th>
+                                            <th>ID</th>
+                                            <th>Student</th>
+                                            <th>Department</th>
+                                            <th>Semester</th>
+                                            <th>Courses</th>
+                                            <th>Advisor</th>
+                                            <th>Status</th>
+                                            <th>Submitted</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="approval-row" data-registration-id="REG2025001">
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reg1">
+                                                    <label class="form-check-label" for="reg1"></label>
+                                                </div>
+                                            </td>
+                                            <td>REG2025001</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="ms-2">
+                                                        <div class="fw-bold">John Doe</div>
+                                                        <div class="small text-muted">ID: 20210001</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Computer Science</td>
+                                            <td>Spring 2025</td>
+                                            <td><span class="badge bg-primary">3 courses</span></td>
+                                            <td>Dr. Smith</td>
+                                            <td><span class="badge rounded-pill bg-warning text-dark">Advisor Approved</span></td>
+                                            <td>April 15, 2025</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registrationDetailsModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="approval-row" data-registration-id="REG2025002">
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reg2">
+                                                    <label class="form-check-label" for="reg2"></label>
+                                                </div>
+                                            </td>
+                                            <td>REG2025002</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="ms-2">
+                                                        <div class="fw-bold">Jane Smith</div>
+                                                        <div class="small text-muted">ID: 20210042</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Mathematics</td>
+                                            <td>Spring 2025</td>
+                                            <td><span class="badge bg-primary">4 courses</span></td>
+                                            <td>Dr. Johnson</td>
+                                            <td><span class="badge rounded-pill bg-warning text-dark">Advisor Approved</span></td>
+                                            <td>April 16, 2025</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registrationDetailsModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="approval-row" data-registration-id="REG2025003">
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reg3">
+                                                    <label class="form-check-label" for="reg3"></label>
+                                                </div>
+                                            </td>
+                                            <td>REG2025003</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="ms-2">
+                                                        <div class="fw-bold">Michael Brown</div>
+                                                        <div class="small text-muted">ID: 20210089</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Business</td>
+                                            <td>Spring 2025</td>
+                                            <td><span class="badge bg-primary">5 courses</span></td>
+                                            <td>Dr. Williams</td>
+                                            <td><span class="badge rounded-pill bg-warning text-dark">Advisor Approved</span></td>
+                                            <td>April 16, 2025</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registrationDetailsModal">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <button class="btn btn-success me-2" id="bulkApproveBtn" data-bs-toggle="tooltip" title="Approve selected registrations">
+                                        <i class="fas fa-check me-1"></i> Approve Selected
+                                    </button>
+                                    <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#bulkRejectModal">
+                                        <i class="fas fa-times me-1"></i> Reject Selected
+                                    </button>
+                                </div>
+                                <div>
+                                    <nav aria-label="Approval pagination">
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Card -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Approval Statistics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                                            <i class="fas fa-clock text-primary fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-0">12</h3>
+                                            <div class="text-muted">Pending Approvals</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
+                                            <i class="fas fa-check-double text-success fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-0">28</h3>
+                                            <div class="text-muted">Approved Today</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
+                                            <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-0">5</h3>
+                                            <div class="text-muted">Rejected Today</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
+                                            <i class="fas fa-calendar-check text-info fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-0">78%</h3>
+                                            <div class="text-muted">Approval Rate</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Registration Details Modal -->
+        <div class="modal fade" id="registrationDetailsModal" tabindex="-1" aria-labelledby="registrationDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registrationDetailsModalLabel">Registration Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-3">Student Information</h6>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Name</div>
+                                            <div class="col-sm-8 fw-bold">John Doe</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Student ID</div>
+                                            <div class="col-sm-8">20210001</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Department</div>
+                                            <div class="col-sm-8">Computer Science</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Email</div>
+                                            <div class="col-sm-8">john.doe@university.edu</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Advisor</div>
+                                            <div class="col-sm-8">Dr. Smith</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Waiver</div>
+                                            <div class="col-sm-8">20% (Scholarship)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-3">Registration Information</h6>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Registration ID</div>
+                                            <div class="col-sm-8">REG2025001</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Semester</div>
+                                            <div class="col-sm-8">Spring 2025</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Submission Date</div>
+                                            <div class="col-sm-8">April 15, 2025</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Advisor Approval</div>
+                                            <div class="col-sm-8">
+                                                <span class="badge bg-success">Approved (April 16, 2025)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">HOD Approval</div>
+                                            <div class="col-sm-8">
+                                                <span class="badge bg-warning text-dark">Pending</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4 text-muted">Payment Status</div>
+                                            <div class="col-sm-8">
+                                                <span class="badge bg-secondary">Not Paid</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h6 class="text-muted mb-3">Registered Courses</h6>
+                        <div class="card mb-4">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th width="5%">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="selectAllCourses">
+                                                        <label class="form-check-label" for="selectAllCourses"></label>
+                                                    </div>
+                                                </th>
+                                                <th width="15%">Course Code</th>
+                                                <th width="35%">Course Title</th>
+                                                <th width="10%">Credits</th>
+                                                <th width="15%">Department</th>
+                                                <th width="15%">Advisor Status</th>
+                                                <th width="5%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="course1" checked>
+                                                        <label class="form-check-label" for="course1"></label>
+                                                    </div>
+                                                </td>
+                                                <td>CSE201</td>
+                                                <td>Data Structures and Algorithms</td>
+                                                <td>3</td>
+                                                <td>Computer Science</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                            <li><a class="dropdown-item text-success" href="#"><i class="fas fa-check me-2"></i> Approve</a></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-times me-2"></i> Reject</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-comment me-2"></i> Add Note</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="course2" checked>
+                                                        <label class="form-check-label" for="course2"></label>
+                                                    </div>
+                                                </td>
+                                                <td>CSE205</td>
+                                                <td>Database Systems</td>
+                                                <td>3</td>
+                                                <td>Computer Science</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                            <li><a class="dropdown-item text-success" href="#"><i class="fas fa-check me-2"></i> Approve</a></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-times me-2"></i> Reject</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-comment me-2"></i> Add Note</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="course3" checked>
+                                                        <label class="form-check-label" for="course3"></label>
+                                                    </div>
+                                                </td>
+                                                <td>MATH301</td>
+                                                <td>Differential Equations</td>
+                                                <td>4</td>
+                                                <td>Mathematics</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                            <li><a class="dropdown-item text-success" href="#"><i class="fas fa-check me-2"></i> Approve</a></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-times me-2"></i> Reject</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-comment me-2"></i> Add Note</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-3">Advisor Comments</h6>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="mb-0">
+                                            <p class="fst-italic text-muted mb-2">Added by Dr. Smith on April 16, 2025:</p>
+                                            <p class="mb-0">Student has completed all prerequisites for these courses. Registration approved based on academic progress in previous semesters.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-3">Add HOD Comments</h6>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <textarea class="form-control" rows="4" placeholder="Add your comments regarding this registration..."></textarea>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="notifyStudent">
+                                            <label class="form-check-label" for="notifyStudent">
+                                                Notify student about these comments
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger me-2">
+                            <i class="fas fa-times me-1"></i> Reject Registration
+                        </button>
+                        <button type="button" class="btn btn-success">
+                            <i class="fas fa-check me-1"></i> Approve Registration
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bulk Reject Modal -->
+        <div class="modal fade" id="bulkRejectModal" tabindex="-1" aria-labelledby="bulkRejectModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bulkRejectModalLabel">Reject Selected Registrations</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are about to reject <strong>3</strong> selected registration requests. Please provide a reason for rejection:</p>
+                        <div class="mb-3">
+                            <label for="rejectionReason" class="form-label">Rejection Reason</label>
+                            <textarea class="form-control" id="rejectionReason" rows="3" placeholder="Enter reason for rejection..."></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="notifyStudents" checked>
+                            <label class="form-check-label" for="notifyStudents">
+                                Notify students via email
+                            </label>
+                        </div>
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            This action cannot be undone. Students will need to resubmit their registrations if rejected.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="confirmBulkReject">
+                            <i class="fas fa-times me-1"></i> Confirm Rejection
+                        </button>
                     </div>
                 </div>
             </div>
