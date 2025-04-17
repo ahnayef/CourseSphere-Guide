@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Course Registration System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --background: #f8f9fa;
+            --card: #ffffff;
+            --text: #333333;
+        }
+        
+        body {
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            padding-bottom: 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: rgba(52, 152, 219, 0.1);
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-success {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-danger {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        
+        .status-pending {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .status-approved {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .status-rejected {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .login-container {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+        
+        .login-form {
+            padding: 30px;
+        }
+        
+        .login-brand {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .dashboard-stat {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .dashboard-stat i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .dashboard-stat .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .dashboard-stat .label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Prototype navigation */
+        .prototype-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+        }
+        
+        .prototype-nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .prototype-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Prototype Navigation -->
+    <div class="prototype-nav text-center">
+        <div class="btn-group">
+            <a href="#login" class="btn btn-sm btn-outline-light">Login</a>
+            <a href="#student-dashboard" class="btn btn-sm btn-outline-light">Student Dashboard</a>
+            <a href="#course-catalog" class="btn btn-sm btn-outline-light">Course Catalog</a>
+            <a href="#course-cart" class="btn btn-sm btn-outline-light">Course Cart</a>
+            <a href="#registration-status" class="btn btn-sm btn-outline-light">Registration Status</a>
+            <a href="#payment" class="btn btn-sm btn-outline-light">Payment</a>
+            <a href="#advisor-dashboard" class="btn btn-sm btn-outline-light">Advisor Dashboard</a>
+            <a href="#approval" class="btn btn-sm btn-outline-light">Approval</a>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <section id="login" class="container">
+        <div class="row login-container shadow">
+            <div class="col-md-5 login-brand">
+                <h1 class="mb-4">CourseSphere</h1>
+                <p class="lead">Online Course Registration System</p>
+                <img src="https://via.placeholder.com/150" alt="Logo" class="img-fluid mb-4">
+                <p class="small text-muted">© 2025 All Rights Reserved</p>
+            </div>
+            <div class="col-md-7 login-form">
+                <h2 class="mb-4">Sign In</h2>
+                
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> Invalid username or password. Please try again.
+                </div>
+                
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <a href="#student-dashboard" class="btn btn-primary">Sign In</a>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Dashboard -->
+    <section id="student-dashboard" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#student-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-catalog">Course Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#registration-status">Registration Status</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">John Doe</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Welcome, John!</h1>
+                    <p class="lead">Student Dashboard</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="number">3</div>
+                            <div class="label">Approved Courses</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-clock"></i>
+                            <div class="number">2</div>
+                            <div class="label">Pending Approvals</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="number">10</div>
+                            <div class="label">Days to Deadline</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div class="number">$1,250</div>
+                            <div class="label">Total Fees</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Recent Registrations</span>
+                            <a href="#registration-status" class="btn btn-sm btn-primary">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Course</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CSE101: Introduction to Programming</td>
+                                        <td><span class="status-badge status-approved">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MATH201: Calculus II</td>
+                                        <td><span class="status-badge status-approved">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>PHY101: Physics I</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ENG202: Technical Writing</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Upcoming Deadlines</div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Course Registration</strong>
+                                        <div class="text-muted small">Spring 2025</div>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">10 days left</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Payment Deadline</strong>
+                                        <div class="text-muted small">Spring 2025</div>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">15 days left</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header">Notifications</div>
+                        <div class="card-body">
+                            <div class="alert alert-info mb-3">
+                                <strong>New Courses Added</strong>
+                                <p class="mb-0 small">10 new courses have been added for the Spring 2025 semester.</p>
+                                <small class="text-muted">2 days ago</small>
+                            </div>
+                            <div class="alert alert-success mb-3">
+                                <strong>Registration Approval</strong>
+                                <p class="mb-0 small">Your registration for CSE101 has been approved.</p>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Catalog -->
+    <section id="course-catalog" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#student-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#course-catalog">Course Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#registration-status">Registration Status</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">John Doe</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Course Catalog</h1>
+                    <p class="lead">Browse and select courses for Spring 2025</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Search courses by name or code">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select">
+                                        <option selected>All Departments</option>
+                                        <option>Computer Science</option>
+                                        <option>Mathematics</option>
+                                        <option>Physics</option>
+                                        <option>English</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select">
+                                        <option selected>All Credit Hours</option>
+                                        <option>1 Credit</option>
+                                        <option>2 Credits</option>
+                                        <option>3 Credits</option>
+                                        <option>4 Credits</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Code</th>
+                                            <th>Course Name</th>
+                                            <th>Department</th>
+                                            <th>Credits</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201</td>
+                                            <td>Data Structures</td>
+                                            <td>Computer Science</td>
+                                            <td>3</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205</td>
+                                            <td>Database Systems</td>
+                                            <td>Computer Science</td>
+                                            <td>3</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301</td>
+                                            <td>Differential Equations</td>
+                                            <td>Mathematics</td>
+                                            <td>4</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PHY201</td>
+                                            <td>Physics II</td>
+                                            <td>Physics</td>
+                                            <td>4</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ENG301</td>
+                                            <td>Advanced Technical Writing</td>
+                                            <td>English</td>
+                                            <td>3</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE301</td>
+                                            <td>Software Engineering</td>
+                                            <td>Computer Science</td>
+                                            <td>3</td>
+                                            <td><span class="badge bg-warning text-dark">Prerequisites Required</span></td>
+                                            <td><button class="btn btn-sm btn-primary">Add to Cart</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE401</td>
+                                            <td>Machine Learning</td>
+                                            <td>Computer Science</td>
+                                            <td>3</td>
+                                            <td><span class="badge bg-danger">Full</span></td>
+                                            <td><button class="btn btn-sm btn-primary" disabled>Add to Cart</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <nav>
+                                <ul class="pagination justify-content-center mb-0">
+                                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Cart -->
+    <section id="course-cart" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#student-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-catalog">Course Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#course-cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#registration-status">Registration Status</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">John Doe</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Course Cart</h1>
+                    <p class="lead">Review selected courses before registration</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Selected Courses</div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Code</th>
+                                            <th>Course Name</th>
+                                            <th>Credits</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201</td>
+                                            <td>Data Structures</td>
+                                            <td>3</td>
+                                            <td><button class="btn btn-sm btn-danger">Remove</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205</td>
+                                            <td>Database Systems</td>
+                                            <td>3</td>
+                                            <td><button class="btn btn-sm btn-danger">Remove</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301</td>
+                                            <td>Differential Equations</td>
+                                            <td>4</td>
+                                            <td><button class="btn btn-sm btn-danger">Remove</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Summary</div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Total Courses:</span>
+                                <strong>3</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Total Credits:</span>
+                                <strong>10</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Estimated Fees:</span>
+                                <strong>$1,250.00</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Waiver (20%):</span>
+                                <strong>-$250.00</strong>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Total Due:</span>
+                                <strong>$1,000.00</strong>
+                            </div>
+                            <div class="alert alert-warning small">
+                                <i class="fas fa-info-circle"></i> The final amount will be calculated after approval.
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-success">Proceed to Register</a>
+                                <button class="btn btn-outline-secondary">Clear Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Status -->
+    <section id="registration-status" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#student-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-catalog">Course Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#registration-status">Registration Status</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">John Doe</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Registration Status</h1>
+                    <p class="lead">Track your course registration progress</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">Spring 2025 Registration</div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>Registration Submission</strong>
+                                                <div class="text-muted small">April 10, 2025</div>
+                                            </div>
+                                            <span class="badge bg-success">Completed</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>Advisor Approval</strong>
+                                                <div class="text-muted small">April 12, 2025</div>
+                                            </div>
+                                            <span class="badge bg-success">Approved</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>HOD Approval</strong>
+                                                <div class="text-muted small">Pending</div>
+                                            </div>
+                                            <span class="badge bg-warning text-dark">In Progress</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>Payment</strong>
+                                            </div>
+                                            <span class="badge bg-secondary">Pending</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5>Course Status</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Code</th>
+                                            <th>Course Name</th>
+                                            <th>Credits</th>
+                                            <th>Status</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201</td>
+                                            <td>Data Structures</td>
+                                            <td>3</td>
+                                            <td><span class="status-badge status-approved">Approved</span></td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205</td>
+                                            <td>Database Systems</td>
+                                            <td>3</td>
+                                            <td><span class="status-badge status-approved">Approved</span></td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301</td>
+                                            <td>Differential Equations</td>
+                                            <td>4</td>
+                                            <td><span class="status-badge status-pending">Pending</span></td>
+                                            <td>HOD review in process</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                                <button class="btn btn-primary" disabled>Proceed to Payment</button>
+                                <div class="text-center text-muted small mt-2">
+                                    <i class="fas fa-info-circle"></i> Payment will be available after all approvals are complete.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Portal -->
+    <section id="payment" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#student-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-catalog">Course Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#registration-status">Registration Status</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">John Doe</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Payment Portal</h1>
+                    <p class="lead">Complete your registration payment</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header">Payment Summary</div>
+                        <div class="card-body">
+                            <h6 class="mb-3">Spring 2025 Registration</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Course</th>
+                                            <th>Credits</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201: Data Structures</td>
+                                            <td>3</td>
+                                            <td>$375.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205: Database Systems</td>
+                                            <td>3</td>
+                                            <td>$375.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301: Differential Equations</td>
+                                            <td>4</td>
+                                            <td>$500.00</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2"><strong>Subtotal</strong></td>
+                                            <td><strong>$1,250.00</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Waiver (20%)</td>
+                                            <td>-$250.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><strong>Total Due</strong></td>
+                                            <td><strong>$1,000.00</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header">Payment Information</div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="paymentMethod" class="form-label">Payment Method</label>
+                                    <select class="form-select" id="paymentMethod">
+                                        <option>Credit Card</option>
+                                        <option>Debit Card</option>
+                                        <option>Bank Transfer</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Card Number</label>
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" placeholder="123">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="cardHolder" class="form-label">Cardholder Name</label>
+                                    <input type="text" class="form-control" id="cardHolder" placeholder="John Doe">
+                                </div>
+                                
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="saveCard">
+                                    <label class="form-check-label" for="saveCard">Save card for future payments</label>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <a href="#student-dashboard" class="btn btn-primary">Complete Payment</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisor Dashboard -->
+    <section id="advisor-dashboard" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#advisor-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#approval">Registration Approval</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Student Management</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">Dr. Smith (Advisor)</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Advisor Dashboard</h1>
+                    <p class="lead">Manage student registrations and approvals</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-clock"></i>
+                            <div class="number">8</div>
+                            <div class="label">Pending Approvals</div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#approval" class="btn btn-sm btn-primary">Review Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-users"></i>
+                            <div class="number">45</div>
+                            <div class="label">Assigned Students</div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-sm btn-primary">View List</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card dashboard-stat">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="number">32</div>
+                            <div class="label">Approved Registrations</div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-sm btn-primary">View All</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">Recent Activities</div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Student</th>
+                                            <th>Activity</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>Registration Submission</td>
+                                            <td>April 10, 2025</td>
+                                            <td><span class="status-badge status-pending">Pending</span></td>
+                                            <td><a href="#approval" class="btn btn-sm btn-primary">Review</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jane Smith</td>
+                                            <td>Registration Submission</td>
+                                            <td>April 9, 2025</td>
+                                            <td><span class="status-badge status-pending">Pending</span></td>
+                                            <td><a href="#approval" class="btn btn-sm btn-primary">Review</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mike Johnson</td>
+                                            <td>Registration Submission</td>
+                                            <td>April 9, 2025</td>
+                                            <td><span class="status-badge status-approved">Approved</span></td>
+                                            <td><button class="btn btn-sm btn-secondary" disabled>Reviewed</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sarah Williams</td>
+                                            <td>Registration Submission</td>
+                                            <td>April 8, 2025</td>
+                                            <td><span class="status-badge status-rejected">Rejected</span></td>
+                                            <td><button class="btn btn-sm btn-secondary" disabled>Reviewed</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-sm btn-secondary">View All Activities</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Approval -->
+    <section id="approval" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">CourseSphere</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#advisor-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#approval">Registration Approval</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Student Management</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light me-3">Dr. Smith (Advisor)</span>
+                        <a href="#login" class="btn btn-outline-light btn-sm">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col">
+                    <h1>Registration Approval</h1>
+                    <p class="lead">Review and process student registration requests</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Pending Approvals</div>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action active">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">John Doe</h6>
+                                    <small>10 Apr</small>
+                                </div>
+                                <p class="mb-1">3 courses</p>
+                                <small>ID: 20210001</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Jane Smith</h6>
+                                    <small>9 Apr</small>
+                                </div>
+                                <p class="mb-1">4 courses</p>
+                                <small>ID: 20210015</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Robert Johnson</h6>
+                                    <small>9 Apr</small>
+                                </div>
+                                <p class="mb-1">2 courses</p>
+                                <small>ID: 20210022</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Emily Davis</h6>
+                                    <small>8 Apr</small>
+                                </div>
+                                <p class="mb-1">5 courses</p>
+                                <small>ID: 20210008</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Registration Details</span>
+                            <span class="badge bg-primary">John Doe (ID: 20210001)</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <p><strong>Student:</strong> John Doe</p>
+                                    <p><strong>ID:</strong> 20210001</p>
+                                    <p><strong>Department:</strong> Computer Science</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Semester:</strong> Spring 2025</p>
+                                    <p><strong>Submission Date:</strong> April 10, 2025</p>
+                                    <p><strong>Status:</strong> Pending Advisor Approval</p>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive mb-4">
+                                <table class="table table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Course Code</th>
+                                            <th>Course Name</th>
+                                            <th>Credits</th>
+                                            <th>Approve</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSE201</td>
+                                            <td>Data Structures</td>
+                                            <td>3</td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSE205</td>
+                                            <td>Database Systems</td>
+                                            <td>3</td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATH301</td>
+                                            <td>Differential Equations</td>
+                                            <td>4</td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="rejectionReason" class="form-label">Rejection Reason (if applicable)</label>
+                                <textarea class="form-control" id="rejectionReason" rows="3" placeholder="Enter reason for rejection if any courses are not approved"></textarea>
+                            </div>
+                            
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-danger me-2">Reject</button>
+                                <a href="#advisor-dashboard" class="btn btn-success">Approve</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple page routing for prototype
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            // Show login page by default
+            document.getElementById('login').style.display = 'block';
+            
+            // Handle navigation
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show target section
+                    if (targetId) {
+                        document.getElementById(targetId).style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
