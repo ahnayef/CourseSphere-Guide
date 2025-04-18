@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Course Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="student-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="student-dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li class="navbar-item"><a href="course-catalog.html" class="navbar-link">Course Catalog</a></li>
+                <li class="navbar-item"><a href="course-cart.html" class="navbar-link active">Course Cart</a></li>
+                <li class="navbar-item"><a href="registration-status.html" class="navbar-link">Registration Status</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Course Cart</h1>
+            <p class="dashboard-subtitle">Review and submit your course selections</p>
+        </div>
+        
+        <!-- Course Cart -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Selected Courses</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Instructor</th>
+                            <th>Schedule</th>
+                            <th>Cost</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS301</td>
+                            <td>Data Structures and Algorithms</td>
+                            <td>3</td>
+                            <td>Dr. Jane Smith</td>
+                            <td>Mon/Wed 10:00-11:30 AM</td>
+                            <td>$450</td>
+                            <td><button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS315</td>
+                            <td>Database Systems</td>
+                            <td>3</td>
+                            <td>Prof. Robert Johnson</td>
+                            <td>Tue/Thu 1:00-2:30 PM</td>
+                            <td>$450</td>
+                            <td><button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS350</td>
+                            <td>Computer Networks</td>
+                            <td>3</td>
+                            <td>Dr. Lisa Taylor</td>
+                            <td>Tue/Thu 3:00-4:30 PM</td>
+                            <td>$450</td>
+                            <td><button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Cart Summary -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Registration Summary</h3>
+            </div>
+            <div class="card-body">
+                <div class="cart-summary">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Total Courses:</span>
+                        <span>3</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Total Credit Hours:</span>
+                        <span>9</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Cost per Credit Hour:</span>
+                        <span>$150</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Subtotal:</span>
+                        <span>$1,350</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Student Discount:</span>
+                        <span>$0</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total Fee:</span>
+                        <span>$1,350</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h4>Important Notes</h4>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Submitting this registration will send it to your advisor for approval.</li>
+                        <li>You can track the status of your registration on the Registration Status page.</li>
+                        <li>Payment is due by May 1, 2025.</li>
+                        <li>You can modify your course selections until your advisor approves them.</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">I confirm that I have reviewed my course selections and understand the registration process.</label>
+                    </div>
+                </div>
+                
+                <div class="cart-actions" style="margin-top: 2rem;">
+                    <button class="btn btn-outline">Clear Cart</button>
+                    <div>
+                        <a href="course-catalog.html" class="btn btn-outline" style="margin-right: 1rem;">Add More Courses</a>
+                        <a href="registration-submit.html" class="btn btn-primary">Submit Registration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Empty State (Hidden when cart has items) -->
+        <div class="empty-state" style="display: none; margin-top: 2rem;">
+            <div class="empty-state-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3 class="empty-state-title">Your course cart is empty</h3>
+            <p class="empty-state-description">Visit the Course Catalog to add courses to your cart.</p>
+            <a href="course-catalog.html" class="btn btn-primary">Browse Courses</a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Course Catalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="student-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="student-dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li class="navbar-item"><a href="course-catalog.html" class="navbar-link active">Course Catalog</a></li>
+                <li class="navbar-item"><a href="course-cart.html" class="navbar-link">Course Cart</a></li>
+                <li class="navbar-item"><a href="registration-status.html" class="navbar-link">Registration Status</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Course Catalog</h1>
+            <p class="dashboard-subtitle">Browse and select courses for Spring 2025 semester</p>
+        </div>
+        
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filters-row">
+                <div class="filter-item">
+                    <label for="department">Department</label>
+                    <select id="department" name="department">
+                        <option value="all">All Departments</option>
+                        <option value="cs" selected>Computer Science</option>
+                        <option value="math">Mathematics</option>
+                        <option value="eng">Engineering</option>
+                        <option value="bus">Business</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="courseLevel">Course Level</label>
+                    <select id="courseLevel" name="courseLevel">
+                        <option value="all">All Levels</option>
+                        <option value="100">100 Level</option>
+                        <option value="200">200 Level</option>
+                        <option value="300" selected>300 Level</option>
+                        <option value="400">400 Level</option>
+                        <option value="500">500 Level (Graduate)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="credits">Credits</label>
+                    <select id="credits" name="credits">
+                        <option value="all">All Credits</option>
+                        <option value="1">1 Credit</option>
+                        <option value="2">2 Credits</option>
+                        <option value="3" selected>3 Credits</option>
+                        <option value="4">4 Credits</option>
+                        <option value="5">5+ Credits</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filters-row">
+                <div class="filter-item" style="flex-grow: 2;">
+                    <label for="search">Search</label>
+                    <input type="text" id="search" name="search" placeholder="Search by course name, code, or instructor">
+                </div>
+                
+                <div class="filter-item" style="display: flex; align-items: flex-end;">
+                    <button class="btn btn-primary" style="height: 40px;">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course List -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Available Courses</h3>
+                <span>Showing 10 of 124 courses</span>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Instructor</th>
+                            <th>Schedule</th>
+                            <th>Available Seats</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS301</td>
+                            <td>Data Structures and Algorithms</td>
+                            <td>3</td>
+                            <td>Dr. Jane Smith</td>
+                            <td>Mon/Wed 10:00-11:30 AM</td>
+                            <td>15/40</td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;" disabled>In Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS315</td>
+                            <td>Database Systems</td>
+                            <td>3</td>
+                            <td>Prof. Robert Johnson</td>
+                            <td>Tue/Thu 1:00-2:30 PM</td>
+                            <td>8/30</td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;" disabled>In Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS325</td>
+                            <td>Operating Systems</td>
+                            <td>3</td>
+                            <td>Dr. Michael Chen</td>
+                            <td>Mon/Wed/Fri 9:00-10:00 AM</td>
+                            <td>12/35</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS332</td>
+                            <td>Computer Architecture</td>
+                            <td>3</td>
+                            <td>Prof. Sarah Williams</td>
+                            <td>Tue/Thu 10:00-11:30 AM</td>
+                            <td>20/40</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS340</td>
+                            <td>Software Engineering</td>
+                            <td>3</td>
+                            <td>Dr. David Miller</td>
+                            <td>Mon/Wed 1:00-2:30 PM</td>
+                            <td>5/35</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS350</td>
+                            <td>Computer Networks</td>
+                            <td>3</td>
+                            <td>Dr. Lisa Taylor</td>
+                            <td>Tue/Thu 3:00-4:30 PM</td>
+                            <td>18/30</td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;" disabled>In Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS361</td>
+                            <td>Artificial Intelligence</td>
+                            <td>3</td>
+                            <td>Prof. James Brown</td>
+                            <td>Mon/Wed 3:00-4:30 PM</td>
+                            <td>0/40</td>
+                            <td><button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;" disabled>Full</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS375</td>
+                            <td>Web Development</td>
+                            <td>3</td>
+                            <td>Dr. Emma Wilson</td>
+                            <td>Tue/Thu 9:00-10:30 AM</td>
+                            <td>22/35</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS380</td>
+                            <td>Cybersecurity Fundamentals</td>
+                            <td>3</td>
+                            <td>Prof. Thomas Clark</td>
+                            <td>Wed/Fri 1:00-2:30 PM</td>
+                            <td>10/25</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                        <tr>
+                            <td>CS390</td>
+                            <td>Mobile App Development</td>
+                            <td>3</td>
+                            <td>Dr. Andrew Lee</td>
+                            <td>Mon/Wed 4:00-5:30 PM</td>
+                            <td>15/30</td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Add to Cart</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <label for="pageSize">Show:</label>
+                    <select id="pageSize" name="pageSize" style="width: auto; display: inline-block; margin: 0 0.5rem;">
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span>entries</span>
+                </div>
+                <div class="pagination" style="display: flex; align-items: center;">
+                    <button class="btn btn-outline" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;" disabled>Previous</button>
+                    <button class="btn btn-primary" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;">1</button>
+                    <button class="btn btn-outline" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;">2</button>
+                    <button class="btn btn-outline" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;">3</button>
+                    <button class="btn btn-outline" style="padding: 0.25rem 0.5rem;">Next</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course Details Modal (Hidden by default) -->
+        <div id="courseDetailsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 100;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 800px; background-color: white; border-radius: 8px; padding: 2rem; max-height: 80vh; overflow-y: auto;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="margin: 0;">CS325: Operating Systems</h2>
+                        <p style="margin: 0.5rem 0 0; color: var(--color-text-light);">Department of Computer Science</p>
+                    </div>
+                    <button style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Credits</p>
+                        <p>3</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Instructor</p>
+                        <p>Dr. Michael Chen</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Schedule</p>
+                        <p>Mon/Wed/Fri 9:00-10:00 AM</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Location</p>
+                        <p>Tech Building, Room 301</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Available Seats</p>
+                        <p>12/35</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Cost</p>
+                        <p>$450</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3>Course Description</h3>
+                    <p>This course covers fundamental concepts of operating systems including process management, memory management, file systems, and I/O management. Topics include scheduling algorithms, synchronization, virtual memory, disk scheduling, deadlocks, and security. The course includes practical exercises involving the implementation of various OS components.</p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>CS215: Computer Programming II</li>
+                        <li>CS332: Computer Architecture</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3>Required Materials</h3>
+                    <p>Operating Systems: Three Easy Pieces by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau</p>
+                </div>
+                
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="btn btn-outline" style="margin-right: 1rem;">Close</button>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

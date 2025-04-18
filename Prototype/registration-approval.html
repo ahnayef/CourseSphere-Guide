@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Registration Approval</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="advisor-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="advisor-dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li class="navbar-item"><a href="student-management.html" class="navbar-link">Students</a></li>
+                <li class="navbar-item"><a href="registration-approval.html" class="navbar-link active">Approvals</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Registration Approval</h1>
+            <p class="dashboard-subtitle">Review and process student course registration requests</p>
+        </div>
+        
+        <!-- Registration Details -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Registration Details</h3>
+            </div>
+            <div class="card-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Student Name</p>
+                        <p>John Doe</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Student ID</p>
+                        <p>S12345678</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Department</p>
+                        <p>Computer Science</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Academic Year</p>
+                        <p>Year 3</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">GPA</p>
+                        <p>3.75</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Credits Completed</p>
+                        <p>74</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Registration ID</p>
+                        <p>REG-25042301</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Submission Date</p>
+                        <p>Apr 18, 2025</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Semester</p>
+                        <p>Spring 2025</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Total Credits</p>
+                        <p>9</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Course Selection</h4>
+                    <table class="table" style="margin-top: 0.75rem;">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Title</th>
+                                <th>Credits</th>
+                                <th>Prerequisites</th>
+                                <th>Available Seats</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CS301</td>
+                                <td>Data Structures and Algorithms</td>
+                                <td>3</td>
+                                <td>CS201 (Completed)</td>
+                                <td>15/40</td>
+                                <td>
+                                    <select class="status-select" style="width: auto; padding: 0.25rem; border-radius: 4px;">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="approved">Approve</option>
+                                        <option value="rejected">Reject</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CS315</td>
+                                <td>Database Systems</td>
+                                <td>3</td>
+                                <td>CS201 (Completed)</td>
+                                <td>8/30</td>
+                                <td>
+                                    <select class="status-select" style="width: auto; padding: 0.25rem; border-radius: 4px;">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="approved">Approve</option>
+                                        <option value="rejected">Reject</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CS350</td>
+                                <td>Computer Networks</td>
+                                <td>3</td>
+                                <td>CS215 (Completed)</td>
+                                <td>18/30</td>
+                                <td>
+                                    <select class="status-select" style="width: auto; padding: 0.25rem; border-radius: 4px;">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="approved">Approve</option>
+                                        <option value="rejected">Reject</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Student Comments</h4>
+                    <div style="border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; background-color: #f8f9fa;">
+                        <p style="font-style: italic; margin: 0;">I'm focusing on networking and security for my future career. I've completed all the prerequisites for these courses and am maintaining a good GPA. Please approve my registration.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Advisor Comments</h4>
+                    <div class="form-group">
+                        <textarea rows="3" placeholder="Enter any comments or feedback for the student"></textarea>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Academic History</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Courses</th>
+                                <th>Credits</th>
+                                <th>GPA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fall 2024</td>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>3.80</td>
+                            </tr>
+                            <tr>
+                                <td>Spring 2024</td>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>3.73</td>
+                            </tr>
+                            <tr>
+                                <td>Fall 2023</td>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>3.67</td>
+                            </tr>
+                            <tr>
+                                <td>Spring 2023</td>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>3.85</td>
+                            </tr>
+                            <tr>
+                                <td>Fall 2022</td>
+                                <td>4</td>
+                                <td>14</td>
+                                <td>3.71</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Advisory Notes</h4>
+                    <div style="border: 1px solid var(--color-border); padding: 1rem; border-radius: 8px;">
+                        <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+                            <p style="margin: 0; font-style: italic;">Meeting on Mar 15, 2025: Discussed course selection for Spring 2025. Student is interested in focusing on networking and security courses. Recommended considering a minor in Cybersecurity.</p>
+                            <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Added by Dr. Michael Brown</p>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-style: italic;">Meeting on Nov 10, 2024: Reviewed academic progress. Student is performing well but expressed concerns about the workload of taking 5 courses. Advised to consider summer courses to balance the load.</p>
+                            <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Added by Dr. Michael Brown</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                    <div>
+                        <button class="btn btn-outline">Back to List</button>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-danger">Reject All</button>
+                        <button class="btn btn-primary">Approve All</button>
+                        <button class="btn btn-secondary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course List (hidden on single registration view) -->
+        <div class="card" style="margin-top: 2rem; display: none;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Pending Approvals</h3>
+                <div>
+                    <label for="filterStatus">Status:</label>
+                    <select id="filterStatus" style="width: auto; display: inline-block; margin: 0 0.5rem;">
+                        <option value="all">All Statuses</option>
+                        <option value="pending" selected>Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>ID</th>
+                            <th>Registration ID</th>
+                            <th>Submission Date</th>
+                            <th>Courses</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>S12345678</td>
+                            <td>REG-25042301</td>
+                            <td>Apr 18, 2025</td>
+                            <td>3</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>Emma Johnson</td>
+                            <td>S23456789</td>
+                            <td>REG-25042302</td>
+                            <td>Apr 17, 2025</td>
+                            <td>4</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>Michael Smith</td>
+                            <td>S34567890</td>
+                            <td>REG-25042303</td>
+                            <td>Apr 16, 2025</td>
+                            <td>5</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Williams</td>
+                            <td>S45678901</td>
+                            <td>REG-25042304</td>
+                            <td>Apr 15, 2025</td>
+                            <td>3</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>David Lee</td>
+                            <td>S56789012</td>
+                            <td>REG-25042305</td>
+                            <td>Apr 14, 2025</td>
+                            <td>4</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jessica Brown</td>
+                            <td>S67890123</td>
+                            <td>REG-25042306</td>
+                            <td>Apr 14, 2025</td>
+                            <td>3</td>
+                            <td><span class="badge badge-rejected">Rejected</span></td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>Robert Wilson</td>
+                            <td>S78901234</td>
+                            <td>REG-25042307</td>
+                            <td>Apr 13, 2025</td>
+                            <td>4</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                            <td><button class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <label for="pageSize">Show:</label>
+                    <select id="pageSize" name="pageSize" style="width: auto; display: inline-block; margin: 0 0.5rem;">
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span>entries</span>
+                </div>
+                <div class="pagination" style="display: flex; align-items: center;">
+                    <button class="btn btn-outline" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;" disabled>Previous</button>
+                    <button class="btn btn-primary" style="margin-right: 0.5rem; padding: 0.25rem 0.5rem;">1</button>
+                    <button class="btn btn-outline" style="padding: 0.25rem 0.5rem;">Next</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Confirmation Modal (Hidden by default) -->
+        <div id="confirmationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 100;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; background-color: white; border-radius: 8px; padding: 2rem; text-align: center;">
+                <div style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--color-secondary);"></i>
+                </div>
+                <h2>Registration Approved</h2>
+                <p style="margin: 1rem 0;">You have approved the registration for John Doe (S12345678). The student will be notified of your decision.</p>
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-outline" style="margin-right: 1rem;">Return to List</button>
+                    <button class="btn btn-primary">Next Pending Registration</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

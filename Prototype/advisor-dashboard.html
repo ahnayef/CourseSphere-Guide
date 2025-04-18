@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Advisor Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="advisor-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="advisor-dashboard.html" class="navbar-link active">Dashboard</a></li>
+                <li class="navbar-item"><a href="student-management.html" class="navbar-link">Students</a></li>
+                <li class="navbar-item"><a href="registration-approval.html" class="navbar-link">Approvals</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Welcome, Dr. Michael Brown</h1>
+            <p class="dashboard-subtitle">Department of Computer Science | Academic Advisor | Today is April 18, 2025</p>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">Pending Approvals</div>
+                <div class="stat-value">12</div>
+                <div class="stat-description">
+                    <span class="badge badge-pending">4 Urgent</span>
+                    <span style="margin-left: 0.5rem; font-size: 0.75rem;">Deadline approaching</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Students Assigned</div>
+                <div class="stat-value">45</div>
+                <div class="stat-description">In Computer Science department</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Approved This Week</div>
+                <div class="stat-value">23</div>
+                <div class="stat-description">Out of 35 submissions</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Average Response Time</div>
+                <div class="stat-value">1.2d</div>
+                <div class="stat-description">Down from 1.8d last semester</div>
+            </div>
+        </div>
+        
+        <!-- Urgent Approvals -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Urgent Approvals</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>ID</th>
+                            <th>Registration ID</th>
+                            <th>Submission Date</th>
+                            <th>Courses</th>
+                            <th>Deadline</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>S12345678</td>
+                            <td>REG-25042301</td>
+                            <td>Apr 18, 2025</td>
+                            <td>3</td>
+                            <td>Apr 21, 2025</td>
+                            <td><a href="registration-approval.html?id=REG-25042301" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</a></td>
+                        </tr>
+                        <tr>
+                            <td>Emma Johnson</td>
+                            <td>S23456789</td>
+                            <td>REG-25042302</td>
+                            <td>Apr 17, 2025</td>
+                            <td>4</td>
+                            <td>Apr 20, 2025</td>
+                            <td><a href="registration-approval.html?id=REG-25042302" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</a></td>
+                        </tr>
+                        <tr>
+                            <td>Michael Smith</td>
+                            <td>S34567890</td>
+                            <td>REG-25042303</td>
+                            <td>Apr 16, 2025</td>
+                            <td>5</td>
+                            <td>Apr 19, 2025</td>
+                            <td><a href="registration-approval.html?id=REG-25042303" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</a></td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Williams</td>
+                            <td>S45678901</td>
+                            <td>REG-25042304</td>
+                            <td>Apr 15, 2025</td>
+                            <td>3</td>
+                            <td>Apr 18, 2025</td>
+                            <td><a href="registration-approval.html?id=REG-25042304" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Review</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer" style="text-align: right;">
+                <a href="registration-approval.html" class="btn btn-outline">View All Approvals</a>
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Recent Activity</h3>
+            </div>
+            <div class="card-body">
+                <div style="border-left: 4px solid var(--color-secondary); padding-left: 1rem; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-weight: 500;">Registration Approved</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">You approved registration for David Lee (S56789012).</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Today at 09:45 AM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-weight: 500;">Course Rejected</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">You rejected CS450: Advanced Algorithms for Jessica Brown (S67890123) due to missing prerequisite.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Today at 09:20 AM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-weight: 500;">New Registration</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">John Doe (S12345678) submitted a new registration with 3 courses.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Today at 08:12 AM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-secondary); padding-left: 1rem; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; font-weight: 500;">Registration Approved</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">You approved registration for Robert Wilson (S78901234).</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Yesterday at 04:30 PM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-primary); padding-left: 1rem;">
+                    <p style="margin: 0; font-weight: 500;">New Registration</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">Emma Johnson (S23456789) submitted a new registration with 4 courses.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Yesterday at 03:15 PM</p>
+                </div>
+            </div>
+            <div class="card-footer" style="text-align: right;">
+                <button class="btn btn-outline">View All Activity</button>
+            </div>
+        </div>
+        
+        <!-- Upcoming Deadlines -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Important Deadlines</h3>
+            </div>
+            <div class="card-body">
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">Registration Period Ends</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">Last day for students to submit course registrations</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="margin: 0; font-weight: 500;">Apr 30, 2025</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">12 days remaining</p>
+                        </div>
+                    </li>
+                    
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">Advisor Approval Deadline</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">Last day for advisors to approve/reject registrations</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="margin: 0; font-weight: 500;">May 3, 2025</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">15 days remaining</p>
+                        </div>
+                    </li>
+                    
+                    <li style="display: flex; justify-content: space-between;">
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">Classes Begin</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">First day of Spring 2025 semester</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="margin: 0; font-weight: 500;">May 15, 2025</p>
+                            <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">27 days remaining</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Student Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="student-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="student-dashboard.html" class="navbar-link active">Dashboard</a></li>
+                <li class="navbar-item"><a href="course-catalog.html" class="navbar-link">Course Catalog</a></li>
+                <li class="navbar-item"><a href="course-cart.html" class="navbar-link">Course Cart</a></li>
+                <li class="navbar-item"><a href="registration-status.html" class="navbar-link">Registration Status</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Welcome, John Doe</h1>
+            <p class="dashboard-subtitle">Student ID: S12345678 | Department: Computer Science | Semester: Spring 2025</p>
+        </div>
+        
+        <!-- Status Cards -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">Registration Status</div>
+                <div class="stat-value">Pending</div>
+                <div class="stat-description">Waiting for advisor approval</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Registered Courses</div>
+                <div class="stat-value">3</div>
+                <div class="stat-description">Total Credit Hours: 9</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Total Fees</div>
+                <div class="stat-value">$1,350</div>
+                <div class="stat-description">Payment due by May 1, 2025</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-title">Cart Items</div>
+                <div class="stat-value">2</div>
+                <div class="stat-description">Ready to register</div>
+            </div>
+        </div>
+        
+        <!-- Important Deadlines -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Important Deadlines</h3>
+            </div>
+            <div class="card-body">
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Registration Period Ends</span>
+                        <span><strong>Apr 30, 2025</strong></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Payment Deadline</span>
+                        <span><strong>May 1, 2025</strong></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>Add/Drop Period</span>
+                        <span><strong>May 5-10, 2025</strong></span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between;">
+                        <span>Classes Begin</span>
+                        <span><strong>May 15, 2025</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Recent Registrations -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Recent Registrations</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS301</td>
+                            <td>Data Structures and Algorithms</td>
+                            <td>3</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>CS315</td>
+                            <td>Database Systems</td>
+                            <td>3</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>CS350</td>
+                            <td>Computer Networks</td>
+                            <td>3</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer" style="text-align: right;">
+                <a href="registration-status.html" class="btn btn-outline">View All Registrations</a>
+            </div>
+        </div>
+        
+        <!-- Notifications -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Notifications</h3>
+            </div>
+            <div class="card-body">
+                <div style="border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="margin: 0; font-weight: 500;">Registration Submitted</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">Your course registration has been submitted to your advisor for review.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Today at 10:23 AM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-secondary); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="margin: 0; font-weight: 500;">Course Approved</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">CS301: Data Structures and Algorithms has been approved by your advisor.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Yesterday at 3:45 PM</p>
+                </div>
+                
+                <div style="border-left: 4px solid var(--color-secondary); padding-left: 1rem;">
+                    <p style="margin: 0; font-weight: 500;">Course Approved</p>
+                    <p style="margin: 0.25rem 0 0; color: var(--color-text-light);">CS315: Database Systems has been approved by your advisor.</p>
+                    <p style="margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-text-light);">Yesterday at 3:45 PM</p>
+                </div>
+            </div>
+            <div class="card-footer" style="text-align: right;">
+                <button class="btn btn-outline">View All Notifications</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

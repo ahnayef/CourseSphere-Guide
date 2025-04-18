@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Registration Status</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="student-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="student-dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li class="navbar-item"><a href="course-catalog.html" class="navbar-link">Course Catalog</a></li>
+                <li class="navbar-item"><a href="course-cart.html" class="navbar-link">Course Cart</a></li>
+                <li class="navbar-item"><a href="registration-status.html" class="navbar-link active">Registration Status</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Registration Status</h1>
+            <p class="dashboard-subtitle">Track your current course registration progress</p>
+        </div>
+        
+        <!-- Status Timeline -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Registration Progress</h3>
+            </div>
+            <div class="card-body">
+                <div style="display: flex; position: relative; margin: 2rem 0;">
+                    <!-- Timeline line -->
+                    <div style="position: absolute; top: 2rem; left: 2rem; width: calc(100% - 4rem); height: 4px; background-color: #e9ecef; z-index: 1;"></div>
+                    
+                    <!-- Status steps -->
+                    <div style="flex: 1; position: relative; z-index: 2; text-align: center;">
+                        <div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: var(--color-secondary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-check" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="margin-top: 1rem; font-weight: 500;">Submitted</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-light);">Apr 18, 2025</p>
+                    </div>
+                    
+                    <div style="flex: 1; position: relative; z-index: 2; text-align: center;">
+                        <div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-sync-alt" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="margin-top: 1rem; font-weight: 500;">Advisor Review</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-light);">In Progress</p>
+                    </div>
+                    
+                    <div style="flex: 1; position: relative; z-index: 2; text-align: center;">
+                        <div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: var(--color-border); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-clock" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="margin-top: 1rem; font-weight: 500;">HOD Review</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-light);">Pending</p>
+                    </div>
+                    
+                    <div style="flex: 1; position: relative; z-index: 2; text-align: center;">
+                        <div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: var(--color-border); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-credit-card" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="margin-top: 1rem; font-weight: 500;">Payment</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-light);">Pending</p>
+                    </div>
+                    
+                    <div style="flex: 1; position: relative; z-index: 2; text-align: center;">
+                        <div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: var(--color-border); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-check-double" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p style="margin-top: 1rem; font-weight: 500;">Complete</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-light);">Pending</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Registration Details -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Registration Details</h3>
+            </div>
+            <div class="card-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Registration ID</p>
+                        <p>REG-25042301</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Submission Date</p>
+                        <p>Apr 18, 2025</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Semester</p>
+                        <p>Spring 2025</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Advisor</p>
+                        <p>Dr. Michael Brown</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Overall Status</p>
+                        <p><span class="badge badge-pending">Pending</span></p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 500; margin-bottom: 0.25rem;">Payment Status</p>
+                        <p><span class="badge badge-rejected">Not Paid</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Course Status -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Course Approval Status</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Advisor Approval</th>
+                            <th>HOD Approval</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CS301</td>
+                            <td>Data Structures and Algorithms</td>
+                            <td>3</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>Prerequisites satisfied</td>
+                        </tr>
+                        <tr>
+                            <td>CS315</td>
+                            <td>Database Systems</td>
+                            <td>3</td>
+                            <td><span class="badge badge-approved">Approved</span></td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>Good course selection</td>
+                        </tr>
+                        <tr>
+                            <td>CS350</td>
+                            <td>Computer Networks</td>
+                            <td>3</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>Under review</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Payment Information -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <h3>Payment Information</h3>
+            </div>
+            <div class="card-body">
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="font-weight: 500; margin-bottom: 0.5rem;">Total Fee: $1,350</p>
+                    <p>Payment is required to complete your registration. You can make payment once all courses are approved.</p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>Payment Methods</h4>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Online payment through the Payment Portal</li>
+                        <li>Bank transfer to University Account No: 123-456-789</li>
+                        <li>In person at the University Finance Office</li>
+                    </ul>
+                </div>
+                
+                <div class="cart-actions">
+                    <button class="btn btn-outline">Cancel Registration</button>
+                    <button class="btn btn-primary" disabled>Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

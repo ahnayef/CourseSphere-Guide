@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSphere - Payment Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="student-dashboard.html" class="navbar-logo">CourseSphere</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="student-dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li class="navbar-item"><a href="course-catalog.html" class="navbar-link">Course Catalog</a></li>
+                <li class="navbar-item"><a href="course-cart.html" class="navbar-link">Course Cart</a></li>
+                <li class="navbar-item"><a href="registration-status.html" class="navbar-link">Registration Status</a></li>
+                <li class="navbar-item"><a href="payment-portal.html" class="navbar-link active">Payment Portal</a></li>
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Payment Portal</h1>
+            <p class="dashboard-subtitle">View and pay your tuition and fees</p>
+        </div>
+        
+        <!-- Balances Summary -->
+        <div class="stats-container">
+            <div class="stat-card" style="background-color: rgba(37, 99, 235, 0.1); border-color: var(--color-primary);">
+                <div class="stat-title">Current Balance</div>
+                <div class="stat-value" style="color: var(--color-primary);">$3,450.00</div>
+                <div class="stat-description">Due by May 1, 2025</div>
+            </div>
+            
+            <div class="stat-card" style="background-color: rgba(16, 185, 129, 0.1); border-color: var(--color-secondary);">
+                <div class="stat-title">Paid Amount</div>
+                <div class="stat-value" style="color: var(--color-secondary);">$2,500.00</div>
+                <div class="stat-description">For current semester</div>
+            </div>
+            
+            <div class="stat-card" style="background-color: rgba(245, 158, 11, 0.1); border-color: var(--color-accent);">
+                <div class="stat-title">Remaining Balance</div>
+                <div class="stat-value" style="color: var(--color-accent);">$950.00</div>
+                <div class="stat-description">Payment pending</div>
+            </div>
+        </div>
+        
+        <!-- Account Summary -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+                <h3>Account Summary</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Posted Date</th>
+                            <th>Due Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tuition - Spring 2025</td>
+                            <td>March 15, 2025</td>
+                            <td>May 1, 2025</td>
+                            <td>$3,200.00</td>
+                            <td><span class="badge badge-pending">Partially Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>Registration Fee</td>
+                            <td>March 15, 2025</td>
+                            <td>May 1, 2025</td>
+                            <td>$150.00</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Technology Fee</td>
+                            <td>March 15, 2025</td>
+                            <td>May 1, 2025</td>
+                            <td>$100.00</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                        </tr>
+                        <tr style="background-color: rgba(16, 185, 129, 0.1);">
+                            <td>Tuition Payment</td>
+                            <td>April 1, 2025</td>
+                            <td>-</td>
+                            <td>-$2,500.00</td>
+                            <td><span class="badge badge-approved">Paid</span></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="font-weight: 500;">
+                            <td colspan="3">Remaining Balance</td>
+                            <td>$950.00</td>
+                            <td><span class="badge badge-pending">Due</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Payment Options -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+                <h3>Make a Payment</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="payment-amount">Payment Amount ($)</label>
+                    <input type="number" id="payment-amount" value="950.00" min="1" max="950" step="0.01">
+                </div>
+                
+                <!-- Payment Method Selection -->
+                <div style="margin-top: 1.5rem;">
+                    <h4>Payment Method</h4>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <div style="flex: 1; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; cursor: pointer; transition: all 0.2s;" id="credit-card-option" onclick="selectPaymentMethod('credit-card')">
+                            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                <input type="radio" name="payment-method" id="credit-card" checked>
+                                <label for="credit-card" style="margin-left: 0.5rem; font-weight: 500; margin-bottom: 0;">Credit/Debit Card</label>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <i class="fab fa-cc-visa" style="font-size: 1.75rem; color: #1a1f71;"></i>
+                                <i class="fab fa-cc-mastercard" style="font-size: 1.75rem; color: #eb001b;"></i>
+                                <i class="fab fa-cc-amex" style="font-size: 1.75rem; color: #2e77bc;"></i>
+                                <i class="fab fa-cc-discover" style="font-size: 1.75rem; color: #ff6000;"></i>
+                            </div>
+                        </div>
+                        
+                        <div style="flex: 1; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; cursor: pointer; opacity: 0.6; transition: all 0.2s;" id="bank-option" onclick="selectPaymentMethod('bank')">
+                            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                <input type="radio" name="payment-method" id="bank">
+                                <label for="bank" style="margin-left: 0.5rem; font-weight: 500; margin-bottom: 0;">Bank Account (ACH)</label>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <i class="fas fa-university" style="font-size: 1.75rem; color: var(--color-text-light);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Credit Card Form -->
+                <div id="credit-card-form" style="margin-top: 1.5rem;">
+                    <h4>Card Information</h4>
+                    
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <div class="form-group" style="flex: 1;">
+                            <label for="expiry-date">Expiry Date (MM/YY)</label>
+                            <input type="text" id="expiry-date" placeholder="MM/YY">
+                        </div>
+                        
+                        <div class="form-group" style="flex: 1;">
+                            <label for="cvv">Security Code (CVV)</label>
+                            <input type="text" id="cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bank Account Form (Hidden by default) -->
+                <div id="bank-form" style="display: none; margin-top: 1.5rem;">
+                    <h4>Bank Account Information</h4>
+                    
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="account-type">Account Type</label>
+                        <select id="account-type">
+                            <option value="checking">Checking Account</option>
+                            <option value="savings">Savings Account</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="routing-number">Routing Number</label>
+                        <input type="text" id="routing-number" placeholder="123456789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="account-number">Account Number</label>
+                        <input type="text" id="account-number" placeholder="1234567890123">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="account-name">Account Holder Name</label>
+                        <input type="text" id="account-name" placeholder="John Doe">
+                    </div>
+                </div>
+                
+                <!-- Billing Address -->
+                <div style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                    <h4>Billing Address</h4>
+                    
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="address-line1">Address Line 1</label>
+                        <input type="text" id="address-line1" placeholder="123 Main St">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address-line2">Address Line 2 (Optional)</label>
+                        <input type="text" id="address-line2" placeholder="Apt 4B">
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <div class="form-group" style="flex: 2;">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="New York">
+                        </div>
+                        
+                        <div class="form-group" style="flex: 1;">
+                            <label for="state">State</label>
+                            <select id="state">
+                                <option value="">Select State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <!-- More states would be included here -->
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" style="flex: 1;">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" placeholder="10001">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Save Payment Method -->
+                <div style="margin-top: 1.5rem;">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="save-payment" name="save-payment">
+                        <label for="save-payment" style="display: inline; font-weight: 400;">Save this payment method for future payments</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Summary -->
+            <div class="card-footer">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <p style="margin: 0; font-weight: 500;">Total Payment: <span style="font-size: 1.25rem; color: var(--color-primary);">$950.00</span></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="processPayment()">Make Payment</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Payment History -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Payment History</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Payment Method</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TXN-25042501</td>
+                            <td>April 1, 2025</td>
+                            <td>Tuition Payment - Spring 2025</td>
+                            <td>Visa ****4567</td>
+                            <td>$2,500.00</td>
+                        </tr>
+                        <tr>
+                            <td>TXN-24122301</td>
+                            <td>December 23, 2024</td>
+                            <td>Tuition Payment - Fall 2024</td>
+                            <td>Mastercard ****8912</td>
+                            <td>$3,450.00</td>
+                        </tr>
+                        <tr>
+                            <td>TXN-24081502</td>
+                            <td>August 15, 2024</td>
+                            <td>Late Fee Payment</td>
+                            <td>Bank Transfer</td>
+                            <td>$50.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function selectPaymentMethod(method) {
+            // Reset styles
+            document.getElementById('credit-card-option').style.opacity = '0.6';
+            document.getElementById('credit-card-option').style.borderColor = 'var(--color-border)';
+            document.getElementById('bank-option').style.opacity = '0.6';
+            document.getElementById('bank-option').style.borderColor = 'var(--color-border)';
+            
+            // Hide all forms
+            document.getElementById('credit-card-form').style.display = 'none';
+            document.getElementById('bank-form').style.display = 'none';
+            
+            // Show selected method
+            if (method === 'credit-card') {
+                document.getElementById('credit-card-option').style.opacity = '1';
+                document.getElementById('credit-card-option').style.borderColor = 'var(--color-primary)';
+                document.getElementById('credit-card').checked = true;
+                document.getElementById('credit-card-form').style.display = 'block';
+            } else if (method === 'bank') {
+                document.getElementById('bank-option').style.opacity = '1';
+                document.getElementById('bank-option').style.borderColor = 'var(--color-primary)';
+                document.getElementById('bank').checked = true;
+                document.getElementById('bank-form').style.display = 'block';
+            }
+        }
+        
+        function processPayment() {
+            alert('Payment processed successfully! A confirmation email has been sent to your registered email address.');
+            window.location.href = 'student-dashboard.html';
+        }
+    </script>
+</body>
+</html>
